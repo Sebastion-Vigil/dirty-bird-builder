@@ -1,0 +1,29 @@
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 310px;
+    height: 480px;
+    background-color: skyblue;
+    color: blue;
+    border: 1px solid gold;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 40px;
+    background-color: green;
+}
+
+.button:hover {
+    background-color: darkgreen;
+}
+
+.button:active {
+    border: 1px solid red;
+    background-color: blue;
+}
