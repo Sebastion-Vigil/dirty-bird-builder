@@ -17,7 +17,7 @@ class Game extends React.Component {
         })
     }
     render() {
-        const screen = this.state.welcomeScreen ? <WelcomeScreen toggle={this.toggleWelcomeScreen}/> : <GameArea/>
+        const screen = this.state.welcomeScreen ? <WelcomeScreen toggle={this.toggleWelcomeScreen}/> : <GameArea toggle={this.toggleWelcomeScreen} />
         return (
             <div className='game'>
                 {screen}

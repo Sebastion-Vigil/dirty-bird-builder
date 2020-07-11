@@ -5,7 +5,7 @@ import '../css/Logo.css'
 class Logo extends React.Component {
     render() {
         return (
-            <div className='logo'></div>
+            <div onClick={this.props.toggle} className='logo'></div>
         )
     }
 }
