@@ -8,7 +8,7 @@ import '../css/GameArea.css'
 
 // here is where I should handle => 
 // user greeted with welcome message and root menu
-// upon clicking menu item, user sent to <GameScreen/>
+// upon clicking menu item, user sent to <GameArea/>
 // => make button that quits game and returns to root menu
 // each menu item button passes unique props to the game screen:
     // question

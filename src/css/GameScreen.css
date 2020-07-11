@@ -1,5 +1,7 @@
 .game-screen {
+    position: relative;
     width: 300px;
     height: 250px;
-    border: 1px solid silver;
+    color: white;
+    border: 1px solid gold;
 }
