@@ -4,14 +4,29 @@ import Draggable from 'react-draggable'
 import '../css/Tile.css'
 
 class Tile extends React.Component {
-    render() {
-        return (
-            <Draggable
-            >
-              <div className='tile'></div>
-            </Draggable>
-        )
-    }
+  render () {
+    return (
+      <Draggable
+        defaultPosition={{
+          x: this.props.x,
+          y: this.props.y
+        }}
+        bounds='parent'
+        onStart={this.props.onStart}
+        onDrag={this.props.onDrag}
+        onStop={this.props.onStop}
+      >
+        <div 
+          className='tile'
+          style={{
+              backgroundImage: this.props.img,
+              backgroundSize: '100% 100%'
+          }}
+        >
+        </div>
+      </Draggable>
+    )
+  }
 }
 
 export default Tile

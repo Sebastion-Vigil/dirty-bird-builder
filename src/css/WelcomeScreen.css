@@ -1,12 +1,12 @@
 .welcome-screen {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 310px;
     height: 480px;
-    background-color: skyblue;
-    color: blue;
+    background-color: rgb(19, 18, 18);;
+    color: red;
     border: 1px solid gold;
 }
 
@@ -16,14 +16,17 @@
     align-items: center;
     width: 90px;
     height: 40px;
-    background-color: green;
+    border: 1px solid darkred;
+    border-radius: 9px;
+    background-color: lightblue;
 }
 
 .button:hover {
-    background-color: darkgreen;
+    background-color: darkcyan;
 }
 
 .button:active {
-    border: 1px solid red;
-    background-color: blue;
+    border: 1px solid darkslateblue;
+    background-color: darkmagenta;
+    color: darkcyan;
 }
