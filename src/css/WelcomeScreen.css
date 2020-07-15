@@ -5,8 +5,8 @@
     align-items: center;
     width: 310px;
     height: 480px;
-    background-color: rgb(19, 18, 18);;
-    color: red;
+    background-color: rgb(19, 18, 18);
+    color: gold;
     border: 1px solid gold;
 }
 
@@ -14,19 +14,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90px;
+    width: 125px;
     height: 40px;
     border: 1px solid darkred;
-    border-radius: 9px;
-    background-color: lightblue;
+    border-radius: 20px;
+    background-color: lightgrey;
+    color: red;
 }
 
 .button:hover {
-    background-color: darkcyan;
+    background-color: whitesmoke;
+    border: 1px solid goldenrod;
 }
 
 .button:active {
-    border: 1px solid darkslateblue;
-    background-color: darkmagenta;
-    color: darkcyan;
+    border: 1px solid gold;
+    background-color: lightgray;
+    color: red;
 }

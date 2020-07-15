@@ -7,9 +7,8 @@ class WelcomeScreen extends React.Component {
         return(
             <div className='welcome-screen'>
                 Welcome to the Dirty Bird!
-                <div onClick={this.props.toggle} className='button'>Enter Game</div>
-                <div className='button'>Cheeseburger</div>
-                <div className='button'>BCB</div>
+                <div className='button' onClick={this.props.select} >Cheeseburger</div>
+                <div className='button'>Madlove Burger</div>
             </div>
         )
     }

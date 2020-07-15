@@ -10,7 +10,7 @@ class GameArea extends React.Component {
     render() {
         return (
             <div className='game-area'>
-                <Logo toggle={this.props.toggle} />
+                <Logo />
                 <GameScreen />
                 <AnswerScreen />
             </div>

@@ -1,3 +1,4 @@
-This folder contains all images for the entire game, organized for maintainability and easier import
+This folder contains all images for the entire game, 
+organized for maintainability and easier import
 
 
