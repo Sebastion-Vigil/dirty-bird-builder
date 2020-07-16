@@ -1,5 +1,10 @@
-.select-bun {
+.select {
     width: 310px;
     height: 480px;
     border: 1px solid gold;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

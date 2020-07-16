@@ -3,14 +3,11 @@ import React from 'react'
 import '../css/Select.css'
 
 class SelectBun extends React.Component {
-    state = {
-
-    }
     render() {
         return (
-            <div onClick={this.props.click} className='select-bun'></div>
+            <div className='select bun'>Select Bun</div>
         )
     }
 }
 
-export default SelectBun.js
+export default SelectBun
