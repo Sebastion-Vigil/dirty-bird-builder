@@ -3,9 +3,12 @@ import React from 'react'
 import '../css/Select.css'
 
 class SelectBun extends React.Component {
+    state = {
+
+    }
     render() {
         return (
-            <div className='select-bun'></div>
+            <div onClick={this.props.click} className='select-bun'></div>
         )
     }
 }

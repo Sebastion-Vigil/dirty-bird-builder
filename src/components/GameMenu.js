@@ -17,7 +17,7 @@ class GameMenu extends React.Component {
       ],
       correctTiles: 5,
       yParams: [], // will come back to this one
-      nextScreen: 0
+      nextScreen: 1
     }
   }
 

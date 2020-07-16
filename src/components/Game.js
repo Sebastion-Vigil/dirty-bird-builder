@@ -22,6 +22,14 @@ class Game extends React.Component {
     yMinMax: [],   
   }
 
+  showState = () => {
+    console.log(this.state)
+  }
+
+  clickity = () => {
+    console.log('what the heck?')
+  }
+
   selectMenuItem = (itemData) => {
     this.setState({
       currentScreen: itemData.nextScreen,
@@ -36,7 +44,7 @@ class Game extends React.Component {
   render () {
     const screens = [
       <GameMenu select={this.selectMenuItem} />,
-      <SelectBun />,
+      <SelectBun click={this.clickity} />,
       <SelectSauce />,
       <SelectMeat />,
       <SelectCheese />,
