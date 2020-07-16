@@ -17,12 +17,20 @@ class Game extends React.Component {
     trueTiles: 0, // dynamic landing pad generation
     landingPads: [],
     question: '', // probably gonna just pass this to <Logo/>
-    answer: '', // 'bunsaucesaucemeatcheeseingredients..'
+    answer: '',
+    bun: '',
     yMinMax: [],   
   }
 
   selectMenuItem = (itemData) => {
-    console.log(itemData)
+    this.setState({
+      currentScreen: itemData.nextScreen,
+      tiles: itemData.tiles,
+      trueTiles: itemData.correctTiles,
+      question: itemData.question,
+      answer: itemData.answer,
+      yMinMax: itemData.yParams
+    })
   }
 
   render () {
