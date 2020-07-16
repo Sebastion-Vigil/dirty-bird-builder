@@ -22,7 +22,7 @@ class Tile extends React.Component {
               backgroundImage: this.props.img,
               backgroundSize: '100% 100%'
           }}
-        >
+        >{this.props.txt}
         </div>
       </Draggable>
     )

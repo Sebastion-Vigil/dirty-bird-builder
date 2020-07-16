@@ -1,7 +1,7 @@
 import React from 'react'
 
 // in sequential order
-import WelcomeScreen from './WelcomeScreen.js'
+import GameMenu from './GameMenu.js'
 import SelectBun from './SelectBun.js'
 import SelectSauce from './SelectSauce.js'
 import SelectMeat from './SelectMeat.js'
@@ -21,13 +21,13 @@ class Game extends React.Component {
     yMinMax: [],   
   }
 
-  selectMenuItem = (item) => {
-    console.log(item)
+  selectMenuItem = (itemData) => {
+    console.log(itemData)
   }
 
   render () {
     const screens = [
-      <WelcomeScreen select={() => this.selectMenuItem('it worked!')} />,
+      <GameMenu select={this.selectMenuItem} />,
       <SelectBun />,
       <SelectSauce />,
       <SelectMeat />,
