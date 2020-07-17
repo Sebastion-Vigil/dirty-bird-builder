@@ -19,6 +19,14 @@
     align-items: flex-end;
 }
 
+.select-meat {
+    justify-content: space-evenly;
+}
+
+.select-cheese {
+    justify-content: space-evenly;
+}
+
 .select-button {
     width: 125px;
     height: 40px;
@@ -38,5 +46,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid purple;
+    border: 1px solid gold;
   }

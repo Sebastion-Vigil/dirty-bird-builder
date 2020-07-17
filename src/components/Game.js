@@ -19,11 +19,23 @@ class Game extends React.Component {
     question: '', // probably gonna just pass this to <Logo/>
     answer: '',
     userAnswer: '',
-    topBun: '',
-    bottomBun: '',
-    topBunSauce: '',
-    bottomBunSauce: '',
+    topBun: '', // imgAddress
+    bottomBun: '', // imgAddress
+    topBunSauce: '', // imgAddress
+    bottomBunSauce: '', // imgAddress
+    meat: [], // [imgAddress, str]
+    cheese: '', // imgAddress
     yMinMax: [],   
+  }
+  // need to use this consistently everywhere
+  updateCurrentScreen = () => {
+    let screen = this.state.currentScreen
+    if (screen <= 4) {
+      screen += 1
+    }
+    this.setState({
+      currentScreen: screen
+    })
   }
 
   selectMenuItem = (itemData) => {
@@ -46,6 +58,40 @@ class Game extends React.Component {
     })
   }
 
+  selectSauce = (sauce, str) => {
+    let topS = this.state.topBunSauce
+    let bottomS = this.state.bottomBunSauce
+    if (!bottomS) {
+      bottomS = sauce
+    } else {
+      topS = sauce
+    }
+    let uAnswer = this.state.userAnswer
+    uAnswer += str
+    this.setState({
+      userAnswer: uAnswer,
+      topBunSauce: topS,
+      bottomBunSauce: bottomS
+    })
+  }
+  // m = img address, s = string
+  selectMeat = (m, s) => {
+    const updatedMeat = this.state.meat
+    updatedMeat[0] = m
+    updatedMeat[1] = s
+    this.setState({
+      meat: updatedMeat
+    })
+  }
+
+  selectCheese = (chz, s) => {
+    let uAnswer = this.state.userAnswer
+    const newUserAnswer = s + uAnswer
+    this.setState({
+      userAnswer: newUserAnswer,
+      cheese: chz 
+    })
+  }
 
   // temporary method for debugging purposes
   showState = () => {
@@ -57,11 +103,19 @@ class Game extends React.Component {
       <GameMenu select={this.selectMenuItem} />,
       <SelectBun bun={this.selectBun} />,
       <SelectSauce
+        sauceUpdate={this.selectSauce}
+        screenUpdate={this.updateCurrentScreen}
         tBun={this.state.topBun}
         bBun={this.state.bottomBun}  
       />,
-      <SelectMeat />,
-      <SelectCheese />,
+      <SelectMeat
+        meatUpdate={this.selectMeat}
+        screenUpdate={this.updateCurrentScreen}
+      />,
+      <SelectCheese
+        cheeseUpdate={this.selectCheese}
+        screenUpdate={this.updateCurrentScreen} 
+      />,
       <GameArea />
     ]
     const screen = screens[this.state.currentScreen]
