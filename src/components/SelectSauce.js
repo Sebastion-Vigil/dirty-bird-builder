@@ -8,7 +8,7 @@ import '../css/Select.css'
 
 // import sauce images for button backgrounds
 import chipMayo from '../assets/sauces/ChipotleMayo.png'
-import garlicAioli from '../assets/sauces/GarlicAioli.png'
+// import garlicAioli from '../assets/sauces/GarlicAioli.png'
 import mayo from '../assets/sauces/Mayo.png'
 import relish from '../assets/sauces/Relish.png'
 import trickedRelish from '../assets/sauces/TrickedRelish.png'
@@ -21,23 +21,16 @@ class SelectSauce extends React.Component {
         topSauce: '',
         bottomSauce: '',
         msg: 'Sauce for bottom bun, if any',
-        chip: '../assets/sauces/ChipotleMayo.png',
-        garlic: '../assets/sauces/GarlicAioli.png',
-        mayonesa: '../assets/sauces/Mayo.png',
-        rlsh: '../assets/sauces/Relish.png',
-        tricked: '../assets/sauces/TrickedRelish.png',
-        noSauce: ''
     }
 
     render() {
-        console.log("<SelectSauce/> props: ", this.props)
         return (
             <div className='select select-sauce'>
                 <div className='msg'>{this.state.msg}</div>
                 <BunTop
                   top={`165px`}
                   left={`5px`}
-                  bunTop={``}
+                  bunTop={this.props.tBun}
                   bunTopSauce={``}
                 />
                 <div 
@@ -83,7 +76,7 @@ class SelectSauce extends React.Component {
                 <BunBottom
                   top={`265px`}
                   left={`5px`}
-                  bunBottom={``}
+                  bunBottom={this.props.bBun}
                   bunBottomSauce={``}
                 />
             </div>
