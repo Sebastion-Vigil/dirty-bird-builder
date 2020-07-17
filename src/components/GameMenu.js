@@ -5,7 +5,7 @@ import '../css/GameMenu.css'
 class GameMenu extends React.Component {
   // store all menu item variables here
   state = {
-    cheeseburger: { // answer format: 'cheesebuningredients...meat...ingredients'
+    cheeseburger: { 
       question: 'What comes on a Cheeseburger?',
       answer: 'americansesamerelishmayopicklesonionsbeeftomatolettuce',
       tiles: [ // meat/chz tile sent to <Game/> later after selecting chz

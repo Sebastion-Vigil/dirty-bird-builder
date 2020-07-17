@@ -18,12 +18,12 @@ class Game extends React.Component {
     landingPads: [],
     question: '', // probably gonna just pass this to <Logo/>
     answer: '',
-    bun: '',
+    userAnswer: '',
+    topBun: '',
+    bottomBun: '',
+    topBunSauce: '',
+    bottomBunSauce: '',
     yMinMax: [],   
-  }
-
-  showState = () => {
-    console.log(this.state)
   }
 
   selectMenuItem = (itemData) => {
@@ -37,17 +37,35 @@ class Game extends React.Component {
     })
   }
 
+  selectBun = (bunArr, wholeBun) => {
+    this.setState({
+      currentScreen: 2, // on to Step 3!
+      topBun: bunArr[0],
+      bottomBun: bunArr[1],
+      userAnswer: wholeBun
+    })
+  }
+
+
+  // temporary method for debugging purposes
+  showState = () => {
+    console.log(this.state)
+  }
+
   render () {
     const screens = [
       <GameMenu select={this.selectMenuItem} />,
-      <SelectBun />,
-      <SelectSauce />,
+      <SelectBun bun={this.selectBun} />,
+      <SelectSauce
+        tBun={this.state.topBun}
+        bBun={this.state.bottomBun}  
+      />,
       <SelectMeat />,
       <SelectCheese />,
       <GameArea />
     ]
     const screen = screens[this.state.currentScreen]
-    return <div className='game'>{screen}</div>
+    return <div className='game' onClick={this.showState} >{screen}</div>
   }
 }
 

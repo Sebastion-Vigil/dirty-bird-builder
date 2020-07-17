@@ -1,5 +1,7 @@
 import React from 'react'
 
+import BunBottom from './BunBottom.js'
+import BunTop from './BunTop.js'
 import Tile from './Tile.js'
 import TileLanding from './TileLanding.js'
 
@@ -7,7 +9,7 @@ import '../css/GameScreen.css'
 
 class GameScreen extends React.Component {
   state = {
-
+    
   }
   handleDrag = (e, ui) => {
 
@@ -21,7 +23,23 @@ class GameScreen extends React.Component {
   render () {
     return (
       <div className='game-screen'>
-        <Tile
+        <BunTop
+          top={`5px`}
+          left={`5px`}
+        />
+        <BunBottom
+          top={`284px`}
+          left={`5px`} 
+        />
+      </div>
+    )
+  }
+}
+
+export default GameScreen
+
+
+{/* <Tile
           x={210}
           y={5}
           onStart={this.onStart}
@@ -83,14 +101,4 @@ class GameScreen extends React.Component {
           onStart={this.onStart}
           onDrag={this.handleDrag}
           onStop={this.onStop}
-        />
-        <TileLanding
-          x={5}
-          y={5}
-        />
-      </div>
-    )
-  }
-}
-
-export default GameScreen
+        /> */}

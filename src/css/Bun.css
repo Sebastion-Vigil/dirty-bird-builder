@@ -1,0 +1,45 @@
+.bun {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* left: 5px; */
+    width: 130px;
+    border: 1px solid silver;
+}
+
+.bottom {
+  justify-content: flex-end;
+  /* top: 284px; */
+  height: 35px;
+}
+
+.top {
+  /* top: 5px; */
+  height: 50px;
+}
+
+.top-bun {
+  height: 45px;
+  width: 130px;
+  /* background-color: tan; */
+}
+
+.top-bun-sauce {
+  height: 5px;
+  width: 130px;
+  /* background-color: white; */
+}
+
+.bottom-bun {
+  height: 30px;
+  width: 130px;
+  /* background-color: tan; */
+}
+
+.bottom-sauce {
+  height: 5px;
+  width: 130px;
+  /* background-color: darkred; */
+}
