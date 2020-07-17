@@ -15,7 +15,7 @@ class SelectMeat extends React.Component {
         msg: 'Select Meat',
         selectionMade: false
     }
-
+    // m = meat img address, s = meat str
     chooseMeat = (m, s) => {
       this.props.meatUpdate(m, s)
       const newMsg = s + ' selected'
@@ -23,7 +23,7 @@ class SelectMeat extends React.Component {
           msg: newMsg,
           selectionMade: true
       })
-    }
+    }   
 
     advanceToNextScreen = () => {
         setTimeout(() => {

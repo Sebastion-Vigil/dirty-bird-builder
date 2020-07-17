@@ -2,6 +2,5 @@
     position: absolute;
     width: 85px;
     height: 35px;
-    background-color: silver;
-    border: darkgrey;
+    border: 1px solid darkgrey;
 }

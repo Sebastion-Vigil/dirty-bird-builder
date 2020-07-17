@@ -13,9 +13,8 @@ import '../css/Game.css'
 class Game extends React.Component {
   state = {
     currentScreen: 0, // iterate through game sequence
-    tiles: [],
+    tiles: [], // background img addresses
     trueTiles: 0, // dynamic landing pad generation
-    landingPads: [],
     question: '', // probably gonna just pass this to <Logo/>
     answer: '',
     userAnswer: '',
@@ -25,7 +24,8 @@ class Game extends React.Component {
     bottomBunSauce: '', // imgAddress
     meat: [], // [imgAddress, str]
     cheese: '', // imgAddress
-    yMinMax: [],   
+    tileYMinMax: [], // dynamically generate tile addresses
+    landingYMinMax: [], // dynamically generate landing pad addresses
   }
   // need to use this consistently everywhere
   updateCurrentScreen = () => {
@@ -45,7 +45,7 @@ class Game extends React.Component {
       trueTiles: itemData.correctTiles,
       question: itemData.question,
       answer: itemData.answer,
-      yMinMax: itemData.yParams
+      landingYMinMax: itemData.landingYMinMaxParams,
     })
   }
 
@@ -116,10 +116,12 @@ class Game extends React.Component {
         cheeseUpdate={this.selectCheese}
         screenUpdate={this.updateCurrentScreen} 
       />,
-      <GameArea />
+      <GameArea
+        gameData={this.state} 
+      />
     ]
     const screen = screens[this.state.currentScreen]
-    return <div className='game' onClick={this.showState} >{screen}</div>
+    return <div className='game'>{screen}</div>
   }
 }
 

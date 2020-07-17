@@ -9,28 +9,50 @@ import '../css/GameScreen.css'
 
 class GameScreen extends React.Component {
   state = {
-    
-  }
-  handleDrag = (e, ui) => {
+    gameData: {
 
+    }
   }
-  onStart = () => {
-
+  componentWillMount() {
+    this.setState({
+      gameData: this.props.gameData
+    })
   }
-  onStop = () => {
-
+  handleDrag = (e, ui) => {}
+  onStart = () => {}
+  onStop = () => {}
+  showState = () => {
+    console.log(this.state.gameData)
   }
   render () {
     return (
-      <div className='game-screen'>
-        <BunTop
-          top={`5px`}
+      <div className='game-screen' onClick={this.showState}>
+        <BunTop 
+          top={`5px`} 
           left={`5px`}
+          bunTop={this.state.gameData.topBun}
+          bunTopSauce={this.state.gameData.topBunSauce}
         />
-        <BunBottom
-          top={`284px`}
-          left={`5px`} 
+        <BunBottom 
+          top={`284px`} 
+          left={`5px`}
+          bunBottom={this.state.gameData.bottomBun}
+          bunBottomSauce={this.state.gameData.bottomBunSauce}
         />
+        {this.state.gameData.tiles.map((t, i) => {
+          const yMinMax = [5, 40, 75, 110, 145]
+          return (
+            <Tile
+              key={i}
+              wholeTileImg={t}
+              onStart={this.onStart}
+              onStop={this.onStop}
+              onDrag={this.handleDrag}
+              y={yMinMax[i]}
+              x={210}
+            />
+          )
+        })}
       </div>
     )
   }
@@ -39,7 +61,7 @@ class GameScreen extends React.Component {
 export default GameScreen
 
 
-{/* <Tile
+        {/* <Tile
           x={210}
           y={5}
           onStart={this.onStart}
@@ -67,7 +89,7 @@ export default GameScreen
           onDrag={this.handleDrag}
           onStop={this.onStop}
         />
-         <Tile
+        <Tile
           x={210}
           y={145}
           onStart={this.onStart}

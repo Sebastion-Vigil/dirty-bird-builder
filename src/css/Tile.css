@@ -1,10 +1,21 @@
 .tile {
     position: absolute;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: +1;
     width: 80px;
     height: 30px;
-    border: 1px solid red;
+    border: 1px solid silver;
+}
+
+.chz {
+  width: 80px;
+  height: 8px;
+}
+
+.meat {
+  width: 80px;
+  height: 22px;
 }

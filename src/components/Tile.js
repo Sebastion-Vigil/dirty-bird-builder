@@ -16,13 +16,27 @@ class Tile extends React.Component {
         onDrag={this.props.onDrag}
         onStop={this.props.onStop}
       >
-        <div 
+        <div
           className='tile'
           style={{
-              backgroundImage: this.props.img,
-              backgroundSize: '100% 100%'
+            backgroundImage: this.props.wholeTileImg,
+            backgroundSize: '100% 100%'
           }}
-        >{this.props.txt}
+        >
+          <div 
+            className='chz'
+            style={{
+              backgroundImage: this.props.chzImg,
+              backgroundSize: '100% 100%'
+            }}
+          ></div>
+          <div 
+            className='meat'
+            style={{
+              backgroundImage: this.props.meatImg,
+              backgroundSize: '100% 100%'
+            }}
+          ></div>
         </div>
       </Draggable>
     )

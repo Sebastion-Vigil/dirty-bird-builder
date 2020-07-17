@@ -11,7 +11,9 @@ class GameArea extends React.Component {
         return (
             <div className='game-area'>
                 <Logo />
-                <GameScreen />
+                <GameScreen
+                  gameData={this.props.gameData} 
+                />
                 <AnswerScreen />
             </div>
         )

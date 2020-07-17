@@ -2,22 +2,30 @@ import React from 'react'
 
 import '../css/GameMenu.css'
 
+// import Tile background imgs
+import pickles from '../assets/sandwich-toppings/Pickles.png'
+import onions from '../assets/sandwich-toppings/Onions.png'
+import tomatos from '../assets/sandwich-toppings/Tomatos.png'
+import iceburg from '../assets/sandwich-toppings/Iceburg.png'
+import avocado from '../assets/sandwich-toppings/Avocado.png'
+
 class GameMenu extends React.Component {
   // store all menu item variables here
   state = {
     cheeseburger: { 
       question: 'What comes on a Cheeseburger?',
-      answer: 'americansesamerelishmayopicklesonionsbeeftomatolettuce',
-      tiles: [ // meat/chz tile sent to <Game/> later after selecting chz
-        '../assets/sandwich-toppings/Pickles.png',
-        '../assets/sandwich-toppings/Onions.png',
-        '../assets/sandwich-toppings/Tomatos.png',
-        '../assets/sandwich-toppings/Iceburg.png',
-        '../assets/sandwich-toppings/Avocado.png' // random incorrect ingredient
-      ],
+      answer: 'americansesamerelishmayopicklesonionsbeeftomatoiceburg',
       correctTiles: 5,
-      yParams: [], // will come back to this one
-      nextScreen: 1
+      tileYMinMaxParams: [],
+      landingYMinMaxParams: [], // will come back to this one
+      nextScreen: 1,
+      tiles: [
+        pickles,
+        onions,
+        tomatos,
+        iceburg,
+        avocado // random incorrect ingredient
+      ]
     }
   }
 
@@ -37,8 +45,7 @@ class GameMenu extends React.Component {
           Cheeseburger
         </div>
         <div
-          className='button'
-          
+          className='button' 
         >
           Madlove Burger
         </div>
