@@ -8,6 +8,9 @@ import onions from '../assets/sandwich-toppings/Onions.png'
 import tomatos from '../assets/sandwich-toppings/Tomatos.png'
 import iceburg from '../assets/sandwich-toppings/Iceburg.png'
 import avocado from '../assets/sandwich-toppings/Avocado.png'
+import candiedbacon from '../assets/sandwich-toppings/CandiedBacon.png'
+import cheesecrisp from '../assets/sandwich-toppings/CheeseCrisp.png'
+import romaine from '../assets/sandwich-toppings/Romaine.png'
 
 class GameMenu extends React.Component {
   // store all menu item variables here
@@ -16,15 +19,16 @@ class GameMenu extends React.Component {
       question: 'What comes on a Cheeseburger?',
       answer: 'americansesamerelishmayopicklesonionsbeeftomatoiceburg',
       correctTiles: 5,
-      tileYMinMaxParams: [],
-      landingYMinMaxParams: [], // will come back to this one
       nextScreen: 1,
       tiles: [
-        pickles,
-        onions,
-        tomatos,
-        iceburg,
-        avocado // random incorrect ingredient
+        [pickles, 'visible'],
+        [onions, 'visible'],
+        [tomatos, 'visible'],
+        [iceburg, 'visible'],
+        [avocado, 'visible'],
+        [candiedbacon, 'visible'],
+        [cheesecrisp, 'visible'],
+        [romaine, 'visible']
       ]
     }
   }

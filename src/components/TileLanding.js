@@ -12,9 +12,10 @@ class TileLanding extends React.Component {
                 top: this.props.y,
                 backgroundColor: this.props.color,
                 border: this.props.border,
-                backgroundImage: this.props.droppedImg,
+                backgroundImage: 'url(' + this.props.droppedImg + ')',
                 backgroundSize: '100% 100%'
             }}
+            id={this.props.id}
           >
           </div>
         )

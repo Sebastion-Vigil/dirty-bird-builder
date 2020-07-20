@@ -2,5 +2,6 @@
     position: absolute;
     width: 85px;
     height: 35px;
-    border: 1px solid darkgrey;
+    /* background-color: whitesmoke; */
+    /* border: .5px solid darkred; */
 }

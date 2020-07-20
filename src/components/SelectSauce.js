@@ -45,7 +45,7 @@ class SelectSauce extends React.Component {
     advanceToNextScreen = () => {
       setTimeout(() => {
         this.props.screenUpdate()
-      }, 1500);
+      }, 250);
     }
 
     componentDidUpdate() {

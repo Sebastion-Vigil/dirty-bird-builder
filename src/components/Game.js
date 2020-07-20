@@ -14,7 +14,10 @@ class Game extends React.Component {
   state = {
     currentScreen: 0, // iterate through game sequence
     tiles: [], // background img addresses
-    trueTiles: 0, // dynamic landing pad generation
+    trueTiles: 0, // determine how many landing pads
+    landingPadYs: [], // y addresses of landing pads
+    landingPadColors: [],
+    landingPadBackgrounds: [],
     question: '', // probably gonna just pass this to <Logo/>
     answer: '',
     userAnswer: '',
@@ -24,9 +27,8 @@ class Game extends React.Component {
     bottomBunSauce: '', // imgAddress
     meat: [], // [imgAddress, str]
     cheese: '', // imgAddress
-    tileYMinMax: [], // dynamically generate tile addresses
-    landingYMinMax: [], // dynamically generate landing pad addresses
   }
+
   // need to use this consistently everywhere
   updateCurrentScreen = () => {
     let screen = this.state.currentScreen
@@ -45,7 +47,7 @@ class Game extends React.Component {
       trueTiles: itemData.correctTiles,
       question: itemData.question,
       answer: itemData.answer,
-      landingYMinMax: itemData.landingYMinMaxParams,
+      landingPadYs: itemData.landingYs
     })
   }
 
