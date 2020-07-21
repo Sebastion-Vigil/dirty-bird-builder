@@ -17,6 +17,22 @@ class TileLanding extends React.Component {
             }}
             id={this.props.id}
           >
+            <div 
+              className='landing-chz'
+              style={{
+                backgroundImage: 'url(' + this.props.landingChz + ')',
+                backgroundSize: '100% 100%'
+              }}
+            >
+            </div>
+            <div 
+              className='landing-meat'
+              style={{
+                backgroundImage: 'url(' + this.props.landingMeat + ')',
+                backgroundSize: '100% 100%'
+              }}
+            >
+            </div>
           </div>
         )
     }

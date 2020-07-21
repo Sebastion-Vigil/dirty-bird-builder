@@ -1,7 +1,21 @@
 .tile-landing {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 85px;
     height: 35px;
     /* background-color: whitesmoke; */
     /* border: .5px solid darkred; */
+}
+
+.landing-chz {
+  width: 85px;
+  height: 5px;
+}
+
+.landing-meat {
+  width: 85px;
+  height: 30px;
 }

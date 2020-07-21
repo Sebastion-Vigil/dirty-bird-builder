@@ -15,12 +15,13 @@ class Game extends React.Component {
     currentScreen: 0, // iterate through game sequence
     tiles: [], // background img addresses
     trueTiles: 0, // determine how many landing pads
+    tileYs: [], // y params of <Tiles /> passed down as props
     landingPadYs: [], // y addresses of landing pads
     landingPadColors: [],
     landingPadBackgrounds: [],
     question: '', // probably gonna just pass this to <Logo/>
     answer: '',
-    userAnswer: '',
+    userAnswer: '', // later refactor how recorded and stored
     topBun: '', // imgAddress
     bottomBun: '', // imgAddress
     topBunSauce: '', // imgAddress
@@ -47,7 +48,8 @@ class Game extends React.Component {
       trueTiles: itemData.correctTiles,
       question: itemData.question,
       answer: itemData.answer,
-      landingPadYs: itemData.landingYs
+      landingPadYs: itemData.landingYs,
+      tileYs: itemData.tileYs
     })
   }
 

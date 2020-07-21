@@ -15,21 +15,22 @@ import romaine from '../assets/sandwich-toppings/Romaine.png'
 class GameMenu extends React.Component {
   // store all menu item variables here
   state = {
-    cheeseburger: { 
+    cheeseburger: {
       question: 'What comes on a Cheeseburger?',
-      answer: 'americansesamerelishmayopicklesonionsbeeftomatoiceburg',
+      answer: 'americansesamerelishmayopicklesonionsbeeftomatosiceburg',
       correctTiles: 5,
       nextScreen: 1,
       tiles: [
-        [pickles, 'visible'],
-        [onions, 'visible'],
-        [tomatos, 'visible'],
-        [iceburg, 'visible'],
-        [avocado, 'visible'],
-        [candiedbacon, 'visible'],
-        [cheesecrisp, 'visible'],
-        [romaine, 'visible']
-      ]
+        [pickles, 'visible', 'pickles'],
+        [onions, 'visible', 'onions'],
+        [tomatos, 'visible', 'tomatos'],
+        [iceburg, 'visible', 'iceburg'],
+        [avocado, 'visible', 'avocado'],
+        [candiedbacon, 'visible', 'candiedbacon'],
+        [cheesecrisp, 'visible', 'cheesecrisp'],
+        [romaine, 'visible', 'romaine']
+      ],
+      tileYs: [5, 40, 75, 110, 145, 180, 215, 250]
     }
   }
 
@@ -48,11 +49,7 @@ class GameMenu extends React.Component {
           {' '}
           Cheeseburger
         </div>
-        <div
-          className='button' 
-        >
-          Madlove Burger
-        </div>
+        <div className='button'>Madlove Burger</div>
       </div>
     )
   }
