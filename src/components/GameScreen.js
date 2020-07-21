@@ -59,7 +59,7 @@ class GameScreen extends React.Component {
     if (x >= 27 && x <= 32) {
       for (let i = 0; i < landingYs.length; i++) {
         if (TileID === 'meat' && y >= landingYs[i] && y <= landingYs[i] + 5) {
-          landingColors[i] = 'black' 
+          landingColors[i] = 'magenta' 
           meatInsideLanding[0] = true
           meatInsideLanding[1] = i
         } else if (
@@ -82,18 +82,22 @@ class GameScreen extends React.Component {
     }
   }
   onStop = (e, ui) => {
-    let TileID = ui.node.id
+    let TileID = ui.node.id // well duh it's because I'm using TileID instead of TileLandingID
     const droppedTile = !isNaN(TileID) ? parseInt(TileID) : TileID
     const tiles = this.state.gameData.tiles
     const isTileDown = this.state.tileDown
     const isMeatDown = this.state.meatDown
     const landingBackgrounds = this.state.gameData.landingPadBackgrounds
     if (isTileDown[0]) {
-      console.log("wtf?", tiles[isTileDown[1]][0])
-      landingBackgrounds[TileID][0] = tiles[isTileDown[1]]
+      // landingBackgrounds[TileID][0] = tiles[isTileDown[1]][0]
+      landingBackgrounds[isTileDown[1]][0] = tiles[TileID][0]
       tiles[droppedTile][1] = 'hidden'
     }
     if (isMeatDown[0]) {
+      const chz = this.state.gameData.cheese
+      const meat = this.state.gameData.meat[0]
+      landingBackgrounds[isMeatDown[1]][1] = chz
+      landingBackgrounds[isMeatDown[1]][2] = meat
       isMeatDown[2] = 'hidden'
     }
     this.setState({
@@ -129,8 +133,8 @@ class GameScreen extends React.Component {
               id={i.toString()}
               color={this.state.gameData.landingPadColors[i]}
               droppedImg={this.state.gameData.landingPadBackgrounds[i][parseInt(0)]}
-              landingChz={``}
-              landingMeat={``}
+              landingChz={this.state.gameData.landingPadBackgrounds[i][parseInt(1)]}
+              landingMeat={this.state.gameData.landingPadBackgrounds[i][parseInt(2)]}
             />
           )
         })}
