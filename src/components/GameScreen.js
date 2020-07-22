@@ -10,17 +10,12 @@ import TileLanding from './TileLanding.js'
 import '../css/GameScreen.css'
 
 class GameScreen extends React.Component {
-  state = {
-    gameData: {},
-    tileDown: [false, -1], // [boolean, index of <TileLanding/> w/ <Tile/>]
-    meatDown: [false, -1, 'visible'], // [boolean, index of <TileLanding/> w/ meat <Tile />]
-    tilesDropped: 0 // counter -> check win/lose when === trueTiles
-  } // also meat <Tile/> visibility
+  state = this.props.gameData
 
   componentWillMount () { // should this be componentDidMount() ?
-    const landingColors = [] // <TileLanding/> colors pre <Tile/> drop
-    const landingBackgrounds = [] // later -> store in <Game/> state
-    let trueTiles = this.props.gameData.trueTiles
+    const landingColors = this.state.landingPadColors // <TileLanding/> colors pre <Tile/> drop
+    const landingBackgrounds = this.state.landingPadBackgrounds // later -> store in <Game/> state
+    let trueTiles = this.state.trueTiles
     let ySeed = 248
     const yParams = []
     while (trueTiles > 0) {
@@ -34,12 +29,14 @@ class GameScreen extends React.Component {
     }
     // TopBun now starts just above highest TileLanding
     const topBunY = yParams[yParams.length - 1] - 55
-    this.props.gameData.landingPadYs = yParams
-    this.props.gameData.topBunYpos = topBunY
-    this.props.gameData.landingPadColors = landingColors
-    this.props.gameData.landingPadBackgrounds = landingBackgrounds
     this.setState({
-      gameData: this.props.gameData
+      tileDown: [false, -1],
+      meatDown: [false, -1, 'visible'],
+      tilesDropped: 0,
+      landingPadYs: yParams,
+      topBunYpos: topBunY,
+      landingPadColors: landingColors,
+      landingPadBackgrounds: landingBackgrounds
     })
   }
 
@@ -49,8 +46,8 @@ class GameScreen extends React.Component {
     const TileID = ui.node.id
     const x = ui.x
     const y = ui.y
-    const landingColors = this.state.gameData.landingPadColors
-    const landingYs = this.state.gameData.landingPadYs
+    const landingColors = this.state.landingPadColors
+    const landingYs = this.state.landingPadYs
     const tileInsideLanding = [false, -1]
     const meatInsideLanding = [
       false,
@@ -83,14 +80,14 @@ class GameScreen extends React.Component {
     }
   }
   onStop = (e, ui) => {
-    const userMeatCheese = this.state.gameData.userMeatCheese
+    const userMeatCheese = this.state.userMeatCheese
     let TileID = ui.node.id 
     const droppedTile = !isNaN(TileID) ? parseInt(TileID) : TileID
-    const tiles = this.state.gameData.tiles
+    const tiles = this.state.tiles
     const isTileDown = this.state.tileDown
     const isMeatDown = this.state.meatDown
-    const landingBackgrounds = this.state.gameData.landingPadBackgrounds
-    const userAnswer = this.state.gameData.userAnswer
+    const landingBackgrounds = this.state.landingPadBackgrounds
+    const userAnswer = this.state.userAnswer
     let tilesDropped = this.state.tilesDropped
     if (isTileDown[0]) {
       if (landingBackgrounds[isTileDown[1]][3]) return // exit if <Tile/> already in <TileLanding/>
@@ -102,8 +99,8 @@ class GameScreen extends React.Component {
     }
     if (isMeatDown[0]) {
       if (landingBackgrounds[isMeatDown[1]][3]) return // exit if <Tile/> already in <TileLanding/>
-      const chz = this.state.gameData.cheese 
-      const meat = this.state.gameData.meat
+      const chz = this.state.cheese 
+      const meat = this.state.meat
       landingBackgrounds[isMeatDown[1]][1] = chz
       landingBackgrounds[isMeatDown[1]][2] = meat
       landingBackgrounds[isMeatDown[1]][3] = true
@@ -127,28 +124,28 @@ class GameScreen extends React.Component {
     return (
       <div className='game-screen' onClick={this.showState}>
         <BunTop
-          top={this.state.gameData.topBunYpos}
+          top={this.state.topBunYpos}
           left={5}
-          bunTop={this.state.gameData.topBun}
-          bunTopSauce={this.state.gameData.topBunSauce}
+          bunTop={this.state.topBun}
+          bunTopSauce={this.state.topBunSauce}
         />
         <BunBottom
           top={`286px`}
           left={`5px`}
-          bunBottom={this.state.gameData.bottomBun}
-          bunBottomSauce={this.state.gameData.bottomBunSauce}
+          bunBottom={this.state.bottomBun}
+          bunBottomSauce={this.state.bottomBunSauce}
         />
-        {this.state.gameData.landingPadYs.map((l, i) => {
+        {this.state.landingPadYs.map((l, i) => {
           return (
             <TileLanding
               key={i}
               x={27}
               y={l}
               id={i.toString()}
-              color={this.state.gameData.landingPadColors[i]}
-              droppedImg={this.state.gameData.landingPadBackgrounds[i][parseInt(0)]}
-              landingChz={this.state.gameData.landingPadBackgrounds[i][parseInt(1)]}
-              landingMeat={this.state.gameData.landingPadBackgrounds[i][parseInt(2)]}
+              color={this.state.landingPadColors[i]}
+              droppedImg={this.state.landingPadBackgrounds[i][parseInt(0)]}
+              landingChz={this.state.landingPadBackgrounds[i][parseInt(1)]}
+              landingMeat={this.state.landingPadBackgrounds[i][parseInt(2)]}
             />
           )
         })}
@@ -160,12 +157,12 @@ class GameScreen extends React.Component {
           onDrag={this.handleDrag}
           x={210}
           y={285}
-          chzImg={this.state.gameData.cheese}
-          meatImg={this.state.gameData.meat}
+          chzImg={this.state.cheese}
+          meatImg={this.state.meat}
           id={`meat`} // manually for now -> like all else, refactor later
           visibility={this.state.meatDown[2]}
         />
-        {this.state.gameData.tiles.map((t, i) => {
+        {this.state.tiles.map((t, i) => {
           return (
             <Tile
               key={i}
@@ -175,8 +172,8 @@ class GameScreen extends React.Component {
               onStop={this.onStop}
               onDrag={this.handleDrag}
               x={210}
-              y={this.state.gameData.tileYs[i]}
-              visibility={this.state.gameData.tiles[i][1]}
+              y={this.state.tileYs[i]}
+              visibility={this.state.tiles[i][1]}
             />
           )
         })}
