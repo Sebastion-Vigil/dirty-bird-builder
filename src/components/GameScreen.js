@@ -14,6 +14,7 @@ class GameScreen extends React.Component {
     gameData: {},
     tileDown: [false, -1], // [boolean, index of <TileLanding/> w/ <Tile/>]
     meatDown: [false, -1, 'visible'], // [boolean, index of <TileLanding/> w/ meat <Tile />]
+    tilesDropped: 0 // counter -> check win/lose when === trueTiles
   } // also meat <Tile/> visibility
 
   componentWillMount () { // should this be componentDidMount() ?
@@ -83,22 +84,24 @@ class GameScreen extends React.Component {
   }
   onStop = (e, ui) => {
     const userMeatCheese = this.state.gameData.userMeatCheese
-    let TileID = ui.node.id // well duh it's because I'm using TileID instead of TileLandingID
+    let TileID = ui.node.id 
     const droppedTile = !isNaN(TileID) ? parseInt(TileID) : TileID
     const tiles = this.state.gameData.tiles
     const isTileDown = this.state.tileDown
     const isMeatDown = this.state.meatDown
     const landingBackgrounds = this.state.gameData.landingPadBackgrounds
     const userAnswer = this.state.gameData.userAnswer
+    let tilesDropped = this.state.tilesDropped
     if (isTileDown[0]) {
-      if (landingBackgrounds[isTileDown[1]][3]) return // if <Tile/> already in <TileLanding/>
+      if (landingBackgrounds[isTileDown[1]][3]) return // exit if <Tile/> already in <TileLanding/>
       landingBackgrounds[isTileDown[1]][0] = tiles[TileID][0]
       landingBackgrounds[isTileDown[1]][3] = true
       tiles[droppedTile][1] = 'hidden'
       userAnswer[1][isTileDown[1]] = tiles[TileID][2]
+      tilesDropped += 1
     }
     if (isMeatDown[0]) {
-      if (landingBackgrounds[isMeatDown[1]][3]) return // if <Tile/> already in <TileLanding/>
+      if (landingBackgrounds[isMeatDown[1]][3]) return // exit if <Tile/> already in <TileLanding/>
       const chz = this.state.gameData.cheese 
       const meat = this.state.gameData.meat
       landingBackgrounds[isMeatDown[1]][1] = chz
@@ -106,13 +109,15 @@ class GameScreen extends React.Component {
       landingBackgrounds[isMeatDown[1]][3] = true
       isMeatDown[2] = 'hidden'
       userAnswer[1][isMeatDown[1]] = userMeatCheese
+      tilesDropped += 1
     }
     this.setState({
       landingPadBackgrounds: landingBackgrounds,
       tiles: tiles,
       meatDown: isMeatDown,
       tileDown: isTileDown,
-      userAnswer: userAnswer
+      userAnswer: userAnswer,
+      tilesDropped: tilesDropped
     })
   }
   showState = () => {

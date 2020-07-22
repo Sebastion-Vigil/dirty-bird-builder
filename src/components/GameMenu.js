@@ -17,10 +17,7 @@ class GameMenu extends React.Component {
   state = {
     cheeseburger: {
       question: 'What comes on a Cheeseburger?',
-      answer: [
-        ['sesame', 'relish', 'mayo'], // <SelectBun/>, <SelectSauce/>
-        ['pickle', 'onion', 'beefamerican', 'tomato', 'iceburg'] // <TileLanding/> order
-      ],
+      answer: 'sesamerelishmayopickleonionbeefamericantomatoiceburg',
       correctTiles: 5,
       nextScreen: 1,
       tiles: [
