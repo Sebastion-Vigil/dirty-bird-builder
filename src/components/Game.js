@@ -20,8 +20,8 @@ class Game extends React.Component {
     landingPadColors: [],
     landingPadBackgrounds: [],
     question: '', // probably gonna just pass this to <Logo/>
-    answer: '',
-    userAnswer: '', // later refactor how recorded and stored
+    answer: [],
+    userAnswer: [], // later refactor how recorded and stored
     topBun: '', // imgAddress
     bottomBun: '', // imgAddress
     topBunSauce: '', // imgAddress
@@ -54,11 +54,13 @@ class Game extends React.Component {
   }
 
   selectBun = (bunArr, wholeBun) => {
+    const uAnswer = this.state.userAnswer
+    uAnswer.push(wholeBun)
     this.setState({
       currentScreen: 2, // on to Step 3!
       topBun: bunArr[0],
       bottomBun: bunArr[1],
-      userAnswer: wholeBun
+      userAnswer: uAnswer
     })
   }
 
@@ -71,7 +73,7 @@ class Game extends React.Component {
       topS = sauce
     }
     let uAnswer = this.state.userAnswer
-    uAnswer += str
+    uAnswer.push(str)
     this.setState({
       userAnswer: uAnswer,
       topBunSauce: topS,
@@ -89,10 +91,10 @@ class Game extends React.Component {
   }
 
   selectCheese = (chz, s) => {
-    let uAnswer = this.state.userAnswer
-    const newUserAnswer = s + uAnswer
+    const uAnswer = this.state.userAnswer
+    uAnswer.unshift(s)
     this.setState({
-      userAnswer: newUserAnswer,
+      userAnswer: uAnswer,
       cheese: chz 
     })
   }

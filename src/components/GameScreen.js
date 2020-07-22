@@ -13,10 +13,10 @@ class GameScreen extends React.Component {
   state = {
     gameData: {},
     tileDown: [false, -1], // [boolean, index of <TileLanding/> w/ <Tile/>]
-    meatDown: [false, -1, 'visible', ''] // [boolean, index of <TileLanding/> w/ meat <Tile />]
+    meatDown: [false, -1, 'visible', ''], // [boolean, index of <TileLanding/> w/ meat <Tile />]
   } // also meat <Tile/> visibility & meat str for userAnswer
 
-  componentWillMount () {
+  componentWillMount () { // should this be componentDidMount() ?
     const landingColors = [] // <TileLanding/> colors pre <Tile/> drop
     const landingBackgrounds = [] // later -> store in <Game/> state
     const TileMeatName = this.props.gameData.meat[1] // a str -> userAnswer
@@ -29,8 +29,8 @@ class GameScreen extends React.Component {
       // y params for landings
       yParams.push(ySeed)
       landingColors.push('whitesmoke')
-      // <TileLanding/> [[droppedImg, landingChz, landingMeat]]
-      landingBackgrounds.push([['none', 'none', 'none']])
+      // <TileLanding/> [droppedImg, landingChz, landingMeat, boolean(TileLanding already full?)]
+      landingBackgrounds.push(['none', 'none', 'none', false])
       ySeed -= 38
       trueTiles -= 1
     }
@@ -55,7 +55,12 @@ class GameScreen extends React.Component {
     const landingColors = this.state.gameData.landingPadColors
     const landingYs = this.state.gameData.landingPadYs
     const tileInsideLanding = [false, -1]
-    const meatInsideLanding = this.state.meatDown
+    const meatInsideLanding = [
+      false,
+      -1,
+      this.state.meatDown[2],
+      this.state.meatDown[3]
+    ]
     if (x >= 27 && x <= 32) {
       for (let i = 0; i < landingYs.length; i++) {
         if (TileID === 'meat' && y >= landingYs[i] && y <= landingYs[i] + 5) {
@@ -82,28 +87,36 @@ class GameScreen extends React.Component {
     }
   }
   onStop = (e, ui) => {
+    const uAnswer = this.state.gameData.userAnswer
     let TileID = ui.node.id // well duh it's because I'm using TileID instead of TileLandingID
     const droppedTile = !isNaN(TileID) ? parseInt(TileID) : TileID
     const tiles = this.state.gameData.tiles
     const isTileDown = this.state.tileDown
     const isMeatDown = this.state.meatDown
     const landingBackgrounds = this.state.gameData.landingPadBackgrounds
+    
     if (isTileDown[0]) {
-      // landingBackgrounds[TileID][0] = tiles[isTileDown[1]][0]
+      if (landingBackgrounds[isTileDown[1]][3]) return
       landingBackgrounds[isTileDown[1]][0] = tiles[TileID][0]
+      landingBackgrounds[isTileDown[1]][3] = true
       tiles[droppedTile][1] = 'hidden'
+      uAnswer.push(tiles[droppedTile][2])
     }
     if (isMeatDown[0]) {
-      const chz = this.state.gameData.cheese
-      const meat = this.state.gameData.meat[0]
+      if (landingBackgrounds[isMeatDown[1]][3]) return
+      const chz = this.state.gameData.cheese // as above, so below -> refactor
+      const meat = this.state.gameData.meat[0] // no need for useless str in arr
       landingBackgrounds[isMeatDown[1]][1] = chz
       landingBackgrounds[isMeatDown[1]][2] = meat
+      landingBackgrounds[isMeatDown[1]][3] = true
       isMeatDown[2] = 'hidden'
+      uAnswer.push(isMeatDown[3])
     }
     this.setState({
       landingPadBackgrounds: landingBackgrounds,
       tiles: tiles,
-      meatDown: isMeatDown
+      meatDown: isMeatDown,
+      tileDown: isTileDown
     })
   }
   showState = () => {
