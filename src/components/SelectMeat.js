@@ -16,9 +16,9 @@ class SelectMeat extends React.Component {
         selectionMade: false
     }
     // m = meat img address, s = meat str
-    chooseMeat = (m, s) => {
-      this.props.meatUpdate(m, s)
-      const newMsg = s + ' selected'
+    chooseMeat = (meat, str) => {
+      this.props.meatUpdate(meat, str)
+      const newMsg = str + ' selected'
       this.setState({
           msg: newMsg,
           selectionMade: true

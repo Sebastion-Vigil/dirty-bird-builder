@@ -9,7 +9,7 @@ import SelectCheese from './SelectCheese.js'
 import GameArea from './GameArea.js'
 
 import '../css/Game.css'
-
+// time to refactor -> where are the userAnswer strings being passed
 class Game extends React.Component {
   state = {
     currentScreen: 0, // iterate through game sequence
@@ -21,13 +21,14 @@ class Game extends React.Component {
     landingPadBackgrounds: [],
     question: '', // probably gonna just pass this to <Logo/>
     answer: [],
-    userAnswer: [], // later refactor how recorded and stored
     topBun: '', // imgAddress
     bottomBun: '', // imgAddress
     topBunSauce: '', // imgAddress
     bottomBunSauce: '', // imgAddress
-    meat: [], // [imgAddress, str]
+    meat: '', // imgAddress
     cheese: '', // imgAddress
+    // 'meatcheese' str -> insert in userAnswer when meat tile dropped
+    userMeatCheese: '' 
   }
 
   // need to use this consistently everywhere
@@ -49,53 +50,56 @@ class Game extends React.Component {
       question: itemData.question,
       answer: itemData.answer,
       landingPadYs: itemData.landingYs,
-      tileYs: itemData.tileYs
+      tileYs: itemData.tileYs,
+      userAnswer: [
+        [new Array(itemData.answer[0].length)],
+        [new Array(itemData.answer[1].length)]
+      ]
     })
   }
 
-  selectBun = (bunArr, wholeBun) => {
-    const uAnswer = this.state.userAnswer
-    uAnswer.push(wholeBun)
+  selectBun = (bunArr, str) => {
+    const userAnswer = this.state.userAnswer
+    userAnswer[0][0] = str
     this.setState({
       currentScreen: 2, // on to Step 3!
       topBun: bunArr[0],
       bottomBun: bunArr[1],
-      userAnswer: uAnswer
+      userAnswer: userAnswer
     })
   }
 
   selectSauce = (sauce, str) => {
     let topS = this.state.topBunSauce
     let bottomS = this.state.bottomBunSauce
+    const userAnswer = this.state.userAnswer
     if (!bottomS) {
       bottomS = sauce
+      userAnswer[0][1] = str
     } else {
       topS = sauce
+      userAnswer[0][2] = str
     }
-    let uAnswer = this.state.userAnswer
-    uAnswer.push(str)
     this.setState({
-      userAnswer: uAnswer,
       topBunSauce: topS,
-      bottomBunSauce: bottomS
+      bottomBunSauce: bottomS,
+      userAnswer: userAnswer
     })
   }
-  // m = img address, s = string
-  selectMeat = (m, s) => {
-    const updatedMeat = this.state.meat
-    updatedMeat[0] = m
-    updatedMeat[1] = s
+  // m = img address, str = string
+  selectMeat = (m, str) => {
     this.setState({
-      meat: updatedMeat
+      meat: m,
+      userMeatCheese: str
     })
   }
 
   selectCheese = (chz, s) => {
-    const uAnswer = this.state.userAnswer
-    uAnswer.unshift(s)
+    let userMeatCheese = this.state.userMeatCheese
+    userMeatCheese += s
     this.setState({
-      userAnswer: uAnswer,
-      cheese: chz 
+      cheese: chz,
+      userMeatCheese: userMeatCheese
     })
   }
 

@@ -21,8 +21,8 @@ import wheatBottom from '../assets/buns/WheatBottom.png'
 
 class SelectBun extends React.Component {
     
-    chooseBun = (topBottom, whole) => {
-      this.props.bun(topBottom, whole)
+    chooseBun = (bunArr, str) => {
+      this.props.bun(bunArr, str)
     }
 
     render() {
