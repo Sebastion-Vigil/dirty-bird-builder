@@ -6,7 +6,6 @@ import menu from './menu-items.js'
 
 
 class GameMenu extends React.Component {
-  // does this even need to be a class?
 
   handleSelection = itemData => {
     this.props.select(itemData)
@@ -20,7 +19,6 @@ class GameMenu extends React.Component {
           className='button'
           onClick={() => this.handleSelection(menu.cheeseburger)}
         >
-          {' '}
           Cheeseburger
         </div>
         <div 

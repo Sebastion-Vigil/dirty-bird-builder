@@ -32,9 +32,18 @@ export default {
       madlove: {
         question: 'What comes on a Madlove burger?',
         answer: 'briochetrickedrelishbeefswissprovolonecheesecrispcandiedbaconavocadocitrussaladromaine',
-        nextScreen: cheeseburger.nextScreen,
         correctTiles: 6,
-        tiles: cheeseburger.tiles,
-        tileYs: [...cheeseburger.tileYs, 285]
+        nextScreen: 1, // get rid of this soon 
+        tiles: [
+          [pickle, 'visible', 'pickle'],
+          [onion, 'visible', 'onion'],
+          [tomato, 'visible', 'tomato'],
+          [iceburg, 'visible', 'iceburg'],
+          [avocado, 'visible', 'avocado'],
+          [candiedbacon, 'visible', 'candiedbacon'],
+          [cheesecrisp, 'visible', 'cheesecrisp'],
+          [romaine, 'visible', 'romaine']
+        ], // dynamically generate <Tile/> addresses
+        tileYs: [5, 40, 75, 110, 145, 180, 215, 250, 285]
       }
 }
