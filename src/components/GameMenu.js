@@ -1,38 +1,12 @@
 import React from 'react'
 
 import '../css/GameMenu.css'
+// wow this actually worked! fucking cool!
+import menu from './menu-items.js'
 
-// import Tile background imgs
-import pickles from '../assets/sandwich-toppings/Pickles.png'
-import onions from '../assets/sandwich-toppings/Onions.png'
-import tomatos from '../assets/sandwich-toppings/Tomatos.png'
-import iceburg from '../assets/sandwich-toppings/Iceburg.png'
-import avocado from '../assets/sandwich-toppings/Avocado.png'
-import candiedbacon from '../assets/sandwich-toppings/CandiedBacon.png'
-import cheesecrisp from '../assets/sandwich-toppings/CheeseCrisp.png'
-import romaine from '../assets/sandwich-toppings/Romaine.png'
 
 class GameMenu extends React.Component {
-  // store all menu item variables here
-  state = {
-    cheeseburger: {
-      question: 'What comes on a Cheeseburger?',
-      answer: 'sesamerelishmayopickleonionbeefamericantomatoiceburg',
-      correctTiles: 5,
-      nextScreen: 1,
-      tiles: [
-        [pickles, 'visible', 'pickle'],
-        [onions, 'visible', 'onion'],
-        [tomatos, 'visible', 'tomato'],
-        [iceburg, 'visible', 'iceburg'],
-        [avocado, 'visible', 'avocado'],
-        [candiedbacon, 'visible', 'candiedbacon'],
-        [cheesecrisp, 'visible', 'cheesecrisp'],
-        [romaine, 'visible', 'romaine']
-      ],
-      tileYs: [5, 40, 75, 110, 145, 180, 215, 250]
-    }
-  }
+  // does this even need to be a class?
 
   handleSelection = itemData => {
     this.props.select(itemData)
@@ -44,12 +18,17 @@ class GameMenu extends React.Component {
         Welcome to the Dirty Bird!
         <div
           className='button'
-          onClick={() => this.handleSelection(this.state.cheeseburger)}
+          onClick={() => this.handleSelection(menu.cheeseburger)}
         >
           {' '}
           Cheeseburger
         </div>
-        <div className='button'>Madlove Burger</div>
+        <div 
+          className='button'
+          onClick={() => this.handleSelection(menu.madlove)}
+        >
+          Madlove Burger
+        </div>
       </div>
     )
   }

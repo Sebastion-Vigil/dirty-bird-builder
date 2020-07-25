@@ -11,7 +11,7 @@ import '../css/GameScreen.css'
 
 class GameScreen extends React.Component {
   state = this.props.gameData
-
+  // componentWillMount() -> yeah this has got to go!
   componentWillMount () { // should this be componentDidMount() ?
     const landingColors = this.state.landingPadColors // <TileLanding/> colors pre <Tile/> drop
     const landingBackgrounds = this.state.landingPadBackgrounds // later -> store in <Game/> state
@@ -118,6 +118,7 @@ class GameScreen extends React.Component {
     })
   }
   showState = () => {
+    console.log(this.state.cheese)
     console.log(this.state)
   }
   render () {
