@@ -12,7 +12,8 @@ import '../css/GameScreen.css'
 class GameScreen extends React.Component {
   state = this.props.gameData
   // componentWillMount() -> yeah this has got to go!
-  componentWillMount () { // should this be componentDidMount() ?
+  componentWillMount () {
+    // should this be componentDidMount() ?
     const landingColors = this.state.landingPadColors // <TileLanding/> colors pre <Tile/> drop
     const landingBackgrounds = this.state.landingPadBackgrounds // later -> store in <Game/> state
     let trueTiles = this.state.trueTiles
@@ -40,6 +41,20 @@ class GameScreen extends React.Component {
     })
   }
 
+  componentDidUpdate () {
+    if (this.state.gameFinished) {
+      const msg = this.checkWinOrLose() ? 'winner!' : 'loser!'
+      console.log(msg)
+    }
+  }
+
+  checkWinOrLose = () => {
+    const answer = this.state.answer
+    const firstHalf = this.state.userAnswer[0]
+    const uAnswerSecond = this.state.userAnswer[1]
+    return answer === firstHalf.join('') + uAnswerSecond.join('')
+  }
+
   onStart = () => {}
 
   handleDrag = (e, ui) => {
@@ -49,15 +64,11 @@ class GameScreen extends React.Component {
     const landingColors = this.state.landingPadColors
     const landingYs = this.state.landingPadYs
     const tileInsideLanding = [false, -1]
-    const meatInsideLanding = [
-      false,
-      -1,
-      this.state.meatDown[2]
-    ]
+    const meatInsideLanding = [false, -1, this.state.meatDown[2]]
     if (x >= 27 && x <= 32) {
       for (let i = 0; i < landingYs.length; i++) {
         if (TileID === 'meat' && y >= landingYs[i] && y <= landingYs[i] + 5) {
-          landingColors[i] = 'magenta' 
+          landingColors[i] = 'magenta'
           meatInsideLanding[0] = true
           meatInsideLanding[1] = i
         } else if (
@@ -79,9 +90,10 @@ class GameScreen extends React.Component {
       })
     }
   }
+
   onStop = (e, ui) => {
     const userMeatCheese = this.state.userMeatCheese
-    let TileID = ui.node.id 
+    let TileID = ui.node.id
     const droppedTile = !isNaN(TileID) ? parseInt(TileID) : TileID
     const tiles = this.state.tiles
     const isTileDown = this.state.tileDown
@@ -99,7 +111,7 @@ class GameScreen extends React.Component {
     }
     if (isMeatDown[0]) {
       if (landingBackgrounds[isMeatDown[1]][3]) return // exit if <Tile/> already in <TileLanding/>
-      const chz = this.state.cheese 
+      const chz = this.state.cheese
       const meat = this.state.meat
       landingBackgrounds[isMeatDown[1]][1] = chz
       landingBackgrounds[isMeatDown[1]][2] = meat
@@ -108,19 +120,23 @@ class GameScreen extends React.Component {
       userAnswer[1][isMeatDown[1]] = userMeatCheese
       tilesDropped += 1
     }
+    console.log(tilesDropped === this.state.trueTiles)
     this.setState({
       landingPadBackgrounds: landingBackgrounds,
       tiles: tiles,
       meatDown: isMeatDown,
       tileDown: isTileDown,
       userAnswer: userAnswer,
-      tilesDropped: tilesDropped
+      tilesDropped: tilesDropped,
+      gameFinished: tilesDropped === this.state.trueTiles
     })
   }
+
   showState = () => {
     console.log(this.state.cheese)
     console.log(this.state)
   }
+
   render () {
     return (
       <div className='game-screen' onClick={this.showState}>

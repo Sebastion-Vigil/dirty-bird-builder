@@ -27,6 +27,7 @@ class Game extends React.Component {
     bottomBunSauce: '', // imgAddress
     meat: '', // imgAddress
     cheese: '', // imgAddress
+    gameFinished: false,
     // 'meatcheese' str -> insert in userAnswer when meat tile dropped
     userMeatCheese: '' 
   }
