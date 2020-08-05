@@ -44,7 +44,7 @@ class GameScreen extends React.Component {
   componentDidUpdate () {
     if (this.state.gameFinished) {
       const msg = this.checkWinOrLose() ? 'winner!' : 'loser!'
-      console.log(msg)
+      alert(msg)
     }
   }
 
@@ -93,15 +93,15 @@ class GameScreen extends React.Component {
 
   onStop = (e, ui) => {
     const userMeatCheese = this.state.userMeatCheese
-    let TileID = ui.node.id
-    const droppedTile = !isNaN(TileID) ? parseInt(TileID) : TileID
+    let TileID = ui.node.id // grab Tile id
+    const droppedTile = !isNaN(TileID) ? parseInt(TileID) : TileID // str or int
     const tiles = this.state.tiles
     const isTileDown = this.state.tileDown
     const isMeatDown = this.state.meatDown
     const landingBackgrounds = this.state.landingPadBackgrounds
     const userAnswer = this.state.userAnswer
-    let tilesDropped = this.state.tilesDropped
-    if (isTileDown[0]) {
+    let tilesDropped = this.state.tilesDropped // how many Tiles already dropped?
+    if (isTileDown[0]) { // is there a normal Tile down?
       if (landingBackgrounds[isTileDown[1]][3]) return // exit if <Tile/> already in <TileLanding/>
       landingBackgrounds[isTileDown[1]][0] = tiles[TileID][0]
       landingBackgrounds[isTileDown[1]][3] = true
@@ -109,7 +109,7 @@ class GameScreen extends React.Component {
       userAnswer[1][isTileDown[1]] = tiles[TileID][2]
       tilesDropped += 1
     }
-    if (isMeatDown[0]) {
+    if (isMeatDown[0]) { // is there a meat Tile down?
       if (landingBackgrounds[isMeatDown[1]][3]) return // exit if <Tile/> already in <TileLanding/>
       const chz = this.state.cheese
       const meat = this.state.meat
@@ -120,7 +120,8 @@ class GameScreen extends React.Component {
       userAnswer[1][isMeatDown[1]] = userMeatCheese
       tilesDropped += 1
     }
-    console.log(tilesDropped === this.state.trueTiles)
+    // are all TileLandings full?
+    const gameFinished = tilesDropped === this.state.trueTiles
     this.setState({
       landingPadBackgrounds: landingBackgrounds,
       tiles: tiles,
@@ -128,12 +129,11 @@ class GameScreen extends React.Component {
       tileDown: isTileDown,
       userAnswer: userAnswer,
       tilesDropped: tilesDropped,
-      gameFinished: tilesDropped === this.state.trueTiles
+      gameFinished: gameFinished
     })
   }
 
   showState = () => {
-    console.log(this.state.cheese)
     console.log(this.state)
   }
 

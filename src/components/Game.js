@@ -29,7 +29,7 @@ class Game extends React.Component {
     cheese: '', // imgAddress
     gameFinished: false,
     // 'meatcheese' str -> insert in userAnswer when meat tile dropped
-    userMeatCheese: '' 
+    userMeatCheese: ''
   }
 
   // need to use this consistently everywhere
@@ -102,11 +102,6 @@ class Game extends React.Component {
       cheese: chz,
       userMeatCheese: userMeatCheese
     })
-  }
-
-  // temporary method for debugging purposes
-  showState = () => {
-    console.log(this.state)
   }
 
   render () {

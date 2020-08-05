@@ -7,14 +7,15 @@ Need to think from the start of how to make code more reusable.
 
 The assets folder contains images for the game
 
-Each menu item should have its own folder of images.
+Need to refactor both Tile and TileLanding to 
+display up to three cheeses on top of meat.
 
-For example src/assets/menu-items:
-    /cb
-    /bcb
-    /bbg-burger
-    /mad-love-burger
-    /tavern-double
-The individual tile ingredients images for a given menu item will be stored in its appropriate folder
+Both Tile and Tile landing are container
+elements with up to four inner elements: 
+choice of meat and up to three cheeses.
 
-This will make storing and importing the 
+HT of each inner element should change dynamically
+to fill entire Tile/TileLanding container.
+
+
+
