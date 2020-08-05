@@ -17,5 +17,6 @@ choice of meat and up to three cheeses.
 HT of each inner element should change dynamically
 to fill entire Tile/TileLanding container.
 
+Remove txt from chz imgs, use imgs of real chz
 
 

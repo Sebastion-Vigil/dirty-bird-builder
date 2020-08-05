@@ -8,6 +8,7 @@ import avocado from '../assets/sandwich-toppings/Avocado.png'
 import candiedbacon from '../assets/sandwich-toppings/CandiedBacon.png'
 import cheesecrisp from '../assets/sandwich-toppings/CheeseCrisp.png'
 import romaine from '../assets/sandwich-toppings/Romaine.png'
+import citrussalad from '../assets/sandwich-toppings/CitrusSalad.png'
 
 export default {
     // further modularize -> universal state -> specific state
@@ -36,7 +37,7 @@ export default {
         nextScreen: 1, // get rid of this soon 
         tiles: [
           [pickle, 'visible', 'pickle'],
-          [onion, 'visible', 'onion'],
+          [citrussalad, 'visible', 'citrussalad'],
           [tomato, 'visible', 'tomato'],
           [iceburg, 'visible', 'iceburg'],
           [avocado, 'visible', 'avocado'],
