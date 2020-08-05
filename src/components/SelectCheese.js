@@ -12,16 +12,39 @@ import swiss from '../assets/cheeses/Swiss.png'
 class SelectCheese extends React.Component {
 
     state = {
-        msg: 'Select Cheese',
-        selectionMade: false
+        msg: 'Select up to 3 cheeses:',
+        chzTileVisibility: [
+          'visible',
+          'visible',
+          'visible',
+          'visible',
+          'visible'
+        ],
+        chz: {
+          strs: [], // check if chz.strs.length === 3
+          imgs: [], // chz imgs -> adjust elsewhere
+        }
+    } // change elsewhere 2 handle chz arr instead of chz strs
+
+    showState = () => {
+      console.log("<SelectCheese/> state: ", this.state)
     }
 
-    chooseCheese = (c, s) => {
-      this.props.cheeseUpdate(c, s)
+    chooseCheese = (c, s, i) => { // img, strs, index
+      const chzStrs = this.state.chz.strs
+      const chzImgs = this.state.chz.imgs
       const newMsg = s + ' selected'
+      const chzTileVisibility = this.state.chzTileVisibility
+      chzStrs.push(s)
+      chzImgs.push(c)
+      chzTileVisibility[i] = 'hidden'
       this.setState({
-          msg: newMsg,
-          selectionMade: true
+        chz: {
+          strs: chzStrs,
+          imgs: chzImgs
+        },
+        chzTileVisibility: chzTileVisibility,
+        msg: newMsg
       })
     }
 
@@ -30,55 +53,62 @@ class SelectCheese extends React.Component {
           this.props.screenUpdate()
         }, 250);
       }
-
-    componentDidUpdate() {
-      if (this.state.selectionMade) {
-          this.advanceToNextScreen()
-      }
+    // componentDidUpdate() === lots of infinite loopty loops
+    componentDidUpdate() { // need to use another method
+    
     }
 
     render() {
         return (
-            <div className='select select-cheese'>
+            <div className='select select-cheese' onClick={this.showState}>
                 <div className='msg'>{this.state.msg}</div>
                 <div 
+                  className='done-button'
+                  onClick={() => this.advanceToNextScreen()}
+                >Done/None</div>
+                <div 
                   className='select-button'
-                  onClick={() => this.chooseCheese(american, 'american')}
+                  onClick={() => this.chooseCheese(american, 'american', 0)}
                   style={{
                       backgroundImage: 'url(' + american + ')',
-                      backgroundSize: '100% 100%'
+                      backgroundSize: '100% 100%',
+                      visibility: this.state.chzTileVisibility[0]
                   }}
                 ></div>
                 <div 
                   className='select-button'
-                  onClick={() => this.chooseCheese(cheddar, 'cheddar')}
+                  onClick={() => this.chooseCheese(cheddar, 'cheddar', 1)}
                   style={{
                       backgroundImage: 'url(' + cheddar + ')',
-                      backgroundSize: '100% 100%'
+                      backgroundSize: '100% 100%',
+                      visibility: this.state.chzTileVisibility[1]
                   }}
                 ></div>
                 <div 
                   className='select-button'
-                  onClick={() => this.chooseCheese(pepperjack, 'pepperjack')}
+                  onClick={() => this.chooseCheese(pepperjack, 'pepperjack', 2)}
                   style={{
                       backgroundImage: 'url(' + pepperjack + ')',
-                      backgroundSize: '100% 100%'
+                      backgroundSize: '100% 100%',
+                      visibility: this.state.chzTileVisibility[2]
                   }}
                 ></div>
                 <div 
                   className='select-button'
-                  onClick={() => this.chooseCheese(provolone, 'provolone')}
+                  onClick={() => this.chooseCheese(provolone, 'provolone', 3)}
                   style={{
                       backgroundImage: 'url(' + provolone + ')',
-                      backgroundSize: '100% 100%'
+                      backgroundSize: '100% 100%',
+                      visibility: this.state.chzTileVisibility[3]
                   }}
                 ></div>
                 <div 
                   className='select-button'
-                  onClick={() => this.chooseCheese(swiss, 'swiss')}
+                  onClick={() => this.chooseCheese(swiss, 'swiss', 4)}
                   style={{
                       backgroundImage: 'url(' + swiss + ')',
-                      backgroundSize: '100% 100%'
+                      backgroundSize: '100% 100%',
+                      visibility: this.state.chzTileVisibility[4]
                   }}
                 ></div>
             </div>

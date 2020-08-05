@@ -1,50 +1,62 @@
 .select {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 310px;
-    height: 480px;
-    border: 1px solid gold;
-    color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 310px;
+  height: 480px;
+  border: 1px solid gold;
+  color: white;
 }
 
 .select-bun {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 .select-sauce {
-    justify-content: space-evenly;
-    align-items: flex-end;
+  justify-content: space-evenly;
+  align-items: flex-end;
 }
 
 .select-meat {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 .select-cheese {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 .select-button {
-    width: 125px;
-    height: 40px;
-    border: 1px solid silver;
+  width: 125px;
+  height: 40px;
+  border: 1px solid silver;
+}
+
+.done-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 125px;
+  height: 40px;
+  background-color: silver;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .sauce-button {
-    width: 100px;
-    height: 15px;
-    border: 1px solid silver;
+  width: 100px;
+  height: 15px;
+  border: 1px solid silver;
 }
 
 .msg {
-    width: 310px;
-    height: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid gold;
-  }
+  width: 310px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gold;
+}
