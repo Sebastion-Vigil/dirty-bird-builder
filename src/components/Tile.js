@@ -29,28 +29,32 @@ class Tile extends React.Component {
             className='chz'
             style={{
               backgroundImage: 'url(' + this.props.chzImg3 + ')',
-              backgroundSize: '100% 100%'
+              backgroundSize: '100% 100%',
+              height: this.props.chzTile3HT
             }}
           ></div>
           <div 
             className='chz'
             style={{
               backgroundImage: 'url(' + this.props.chzImg2 + ')',
-              backgroundSize: '100% 100%'
+              backgroundSize: '100% 100%',
+              height: this.props.chzTile2HT
             }}
           ></div>
           <div 
             className='chz'
             style={{
               backgroundImage: 'url(' + this.props.chzImg1 + ')',
-              backgroundSize: '100% 100%'
+              backgroundSize: '100% 100%',
+              height: this.props.chzTile1HT
             }}
           ></div>
           <div 
             className='meat'
             style={{
               backgroundImage: 'url(' + this.props.meatImg + ')',
-              backgroundSize: '100% 100%'
+              backgroundSize: '100% 100%',
+              height: this.props.tileMeatHT
             }}
           ></div>
         </div>

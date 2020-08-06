@@ -14,6 +14,22 @@ class Game extends React.Component {
   state = { // currentScreen should stay here
     currentScreen: 0, // iterate through game sequence
     tiles: [], // background img addresses
+    tileInnerHTs: {
+      chz: {
+        chz1: 'none', // was overthinking
+        chz2: 'none', // in <Tile/> & <TileLanding/>
+        chz3: 'none' // only meat div(s) height 
+      }, // need to be dynamic
+      meat: 'none'
+    },
+    tileLandingInnerHTs: {
+      chz: {
+        chz1: 'none',
+        chz2: 'none',
+        chz3: 'none'
+      },
+      meat: 'none'
+    },
     trueTiles: 0, // determine how many landing pads
     tileYs: [], // y params of <Tiles /> passed down as props
     landingPadYs: [], // y addresses of landing pads

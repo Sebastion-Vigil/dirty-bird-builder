@@ -163,7 +163,11 @@ class GameScreen extends React.Component {
               landingChz1={this.state.landingPadBackgrounds[i][parseInt(1)][0]}
               landingChz2={this.state.landingPadBackgrounds[i][parseInt(1)][1]}
               landingChz3={this.state.landingPadBackgrounds[i][parseInt(1)][2]}
+              landingChz1HT={this.state.tileLandingInnerHTs.chz.chz1}
+              landingChz2HT={this.state.tileLandingInnerHTs.chz.chz2}
+              landingChz3HT={this.state.tileLandingInnerHTs.chz.chz3}
               landingMeat={this.state.landingPadBackgrounds[i][parseInt(2)]}
+              landingMeatHT={this.state.tileLandingInnerHTs.meat}
             />
           )
         })}
@@ -176,7 +180,11 @@ class GameScreen extends React.Component {
           chzImg1={this.state.cheese[0]}
           chzImg2={this.state.cheese[1]}
           chzImg3={this.state.cheese[2]}
+          chzTile1HT={this.state.tileInnerHTs.chz.chz1}
+          chzTile2HT={this.state.tileInnerHTs.chz.chz2}
+          chzTile3HT={this.state.tileInnerHTs.chz.chz3}
           meatImg={this.state.meat}
+          tileMeatHT={this.state.tileInnerHTs.meat}
           id={`meat`} // manually for now -> like all else, refactor later
           visibility={this.state.meatDown[2]}
         />
