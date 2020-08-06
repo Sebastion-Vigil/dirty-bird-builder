@@ -10,15 +10,15 @@
     height: 30px;
     border: 1px solid silver;
 }
-
+/* make chz/meat/landing-chz/landing-meat ht dynamic */
 .chz {
   width: 80px;
-  height: 8px; 
+  /* height: 8px;  */
 }
 
 .meat {
   width: 80px;
-  height: 22px;
+  /* height: 22px; */
 }
 
 /* <TileLanding/> styling */ 
@@ -34,10 +34,10 @@
 
 .landing-chz {
 width: 85px;
-height: 5px;
+/* height: 5px; */
 }
 
 .landing-meat {
 width: 85px;
-height: 30px;
+/* height: 30px; */
 }
