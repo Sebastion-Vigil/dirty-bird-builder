@@ -67,7 +67,7 @@ class SelectSauce extends React.Component {
                 />
                 <div 
                   className='sauce-button'
-                  onClick={() => this.chooseSauce(None, '')}
+                  onClick={() => this.chooseSauce('none', '')}
                   style={{
                       backgroundImage: 'url(' + None + ')',
                       backgroundSize: '100% 100%'
