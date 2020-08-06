@@ -22,7 +22,7 @@ class TileLanding extends React.Component {
               style={{
                 backgroundImage: 'url(' + this.props.landingChz3 + ')',
                 backgroundSize: '100% 100%',
-                height: this.props.landingChz3HT
+                height: this.props.landingChzHT3
               }}
             >
             </div>
@@ -31,7 +31,7 @@ class TileLanding extends React.Component {
               style={{
                 backgroundImage: 'url(' + this.props.landingChz2 + ')',
                 backgroundSize: '100% 100%',
-                height: this.props.landingChz2HT
+                height: this.props.landingChzHT2
               }}
             >
             </div>
@@ -40,7 +40,7 @@ class TileLanding extends React.Component {
               style={{
                 backgroundImage: 'url(' + this.props.landingChz1 + ')',
                 backgroundSize: '100% 100%',
-                height: this.props.landingChz1HT
+                height: this.props.landingChzHT1
               }}
             >
             </div>

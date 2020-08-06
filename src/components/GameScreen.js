@@ -160,14 +160,14 @@ class GameScreen extends React.Component {
               id={i.toString()}
               color={this.state.landingPadColors[i]}
               droppedImg={this.state.landingPadBackgrounds[i][parseInt(0)]}
-              landingChz1={this.state.landingPadBackgrounds[i][parseInt(1)][0]}
-              landingChz2={this.state.landingPadBackgrounds[i][parseInt(1)][1]}
-              landingChz3={this.state.landingPadBackgrounds[i][parseInt(1)][2]}
-              landingChz1HT={this.state.tileLandingInnerHTs.chz.chz1}
-              landingChz2HT={this.state.tileLandingInnerHTs.chz.chz2}
-              landingChz3HT={this.state.tileLandingInnerHTs.chz.chz3}
+              landingChz1={this.state.cheese[0]}
+              landingChz2={this.state.cheese[1]}
+              landingChz3={this.state.cheese[2]}
+              landingChzHT1={this.state.chzHTs[0]}
+              landingChzHT2={this.state.chzHTs[1]}
+              landingChzHT3={this.state.chzHTs[2]}
               landingMeat={this.state.landingPadBackgrounds[i][parseInt(2)]}
-              landingMeatHT={this.state.tileLandingInnerHTs.meat}
+              landingMeatHT={this.state.tileLandingMeatHT}
             />
           )
         })}
@@ -180,11 +180,11 @@ class GameScreen extends React.Component {
           chzImg1={this.state.cheese[0]}
           chzImg2={this.state.cheese[1]}
           chzImg3={this.state.cheese[2]}
-          chzTile1HT={this.state.tileInnerHTs.chz.chz1}
-          chzTile2HT={this.state.tileInnerHTs.chz.chz2}
-          chzTile3HT={this.state.tileInnerHTs.chz.chz3}
+          tileChzHT1={this.state.chzHTs[0]}
+          tileChzHT2={this.state.chzHTs[1]}
+          tileChzHT3={this.state.chzHTs[2]}
           meatImg={this.state.meat}
-          tileMeatHT={this.state.tileInnerHTs.meat}
+          tileMeatHT={this.state.tileMeatHT}
           id={`meat`} // manually for now -> like all else, refactor later
           visibility={this.state.meatDown[2]}
         />

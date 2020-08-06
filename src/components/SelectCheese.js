@@ -23,10 +23,10 @@ class SelectCheese extends React.Component {
         chz: {
           strs: [], // check if chz.strs.length === 3
           imgs: [], // chz imgs -> adjust elsewhere
-        }
+        },
     } // change elsewhere 2 handle chz arr instead of chz strs
 
-    chooseCheese = (c, s, i) => { // img, strs, index
+    chooseCheese = (c, s, i) => { // img, strs, visibility index
       // user can only select up to 3 chzs
       if (this.state.chz.strs.length === 3) return 
       const chzStrs = this.state.chz.strs
@@ -50,8 +50,17 @@ class SelectCheese extends React.Component {
     }
     
     advanceToNextScreen = () => {
-        if (this.state.chz.strs.length > 0) { // if chz selected, send to <Game/>
-          this.props.cheeseUpdate(this.state.chz.imgs, this.state.chz.strs)
+        let selectionsMade = this.state.chz.strs.length
+        if (selectionsMade > 0) { // if chz selected, send to <Game/>
+          const meatHT = [30, 35] // meat div hts for <Tile/> & <TileLanding/>
+          meatHT[0] -= selectionsMade * 2
+          meatHT[1] -= selectionsMade * 2
+          const chzHTs = [0, 0, 0]
+          while (selectionsMade > 0) {
+            chzHTs[selectionsMade - 1] = 2
+            selectionsMade -= 1
+          }
+          this.props.cheeseUpdate(this.state.chz.imgs, this.state.chz.strs, meatHT, chzHTs)
         } // otherwise, just advance to next screen
         setTimeout(() => {
           this.props.screenUpdate()

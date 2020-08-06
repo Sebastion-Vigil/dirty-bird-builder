@@ -14,22 +14,9 @@ class Game extends React.Component {
   state = { // currentScreen should stay here
     currentScreen: 0, // iterate through game sequence
     tiles: [], // background img addresses
-    tileInnerHTs: {
-      chz: {
-        chz1: 'none', // was overthinking
-        chz2: 'none', // in <Tile/> & <TileLanding/>
-        chz3: 'none' // only meat div(s) height 
-      }, // need to be dynamic
-      meat: 'none'
-    },
-    tileLandingInnerHTs: {
-      chz: {
-        chz1: 'none',
-        chz2: 'none',
-        chz3: 'none'
-      },
-      meat: 'none'
-    },
+    tileMeatHT: 30,
+    tileLandingMeatHT: 35,
+    chzHTs: [0, 0, 0], // for both <Tile/> & <TileLanding/>
     trueTiles: 0, // determine how many landing pads
     tileYs: [], // y params of <Tiles /> passed down as props
     landingPadYs: [], // y addresses of landing pads
@@ -110,8 +97,8 @@ class Game extends React.Component {
       userMeatCheese: str
     })
   }
-  // ([chzImg...], [chzStr...])
-  selectCheese = (chz, s) => {
+  // ([chzImg...], [chzStr...], [tileMeatHT, tileLandingMeatHT], [cheeseHTs...])
+  selectCheese = (chz, s, meatHTs, cHTs) => {
     let userMeatCheese = this.state.userMeatCheese
     s.forEach((chzStr) => {
       userMeatCheese += chzStr
@@ -122,7 +109,10 @@ class Game extends React.Component {
     })
     this.setState({
       cheese: chzArr,
-      userMeatCheese: userMeatCheese
+      userMeatCheese: userMeatCheese,
+      tileMeatHT: meatHTs[0],
+      tileLandingMeatHT: meatHTs[1],
+      chzHTs: cHTs
     })
   }
 

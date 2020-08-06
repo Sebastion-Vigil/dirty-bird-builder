@@ -30,7 +30,7 @@ class Tile extends React.Component {
             style={{
               backgroundImage: 'url(' + this.props.chzImg3 + ')',
               backgroundSize: '100% 100%',
-              height: this.props.chzTile3HT
+              height: this.props.tileChzHT3
             }}
           ></div>
           <div 
@@ -38,7 +38,7 @@ class Tile extends React.Component {
             style={{
               backgroundImage: 'url(' + this.props.chzImg2 + ')',
               backgroundSize: '100% 100%',
-              height: this.props.chzTile2HT
+              height: this.props.tileChzHT2
             }}
           ></div>
           <div 
@@ -46,7 +46,7 @@ class Tile extends React.Component {
             style={{
               backgroundImage: 'url(' + this.props.chzImg1 + ')',
               backgroundSize: '100% 100%',
-              height: this.props.chzTile1HT
+              height: this.props.tileChzHT1
             }}
           ></div>
           <div 
