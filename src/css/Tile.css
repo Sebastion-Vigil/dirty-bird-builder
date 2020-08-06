@@ -1,3 +1,4 @@
+/* <Tile/> styling */ 
 .tile {
     position: absolute;
     display: flex;
@@ -12,10 +13,31 @@
 
 .chz {
   width: 80px;
-  height: 8px;
+  height: 8px; 
 }
 
 .meat {
   width: 80px;
   height: 22px;
+}
+
+/* <TileLanding/> styling */ 
+.tile-landing {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85px;
+  height: 35px;
+}
+
+.landing-chz {
+width: 85px;
+height: 5px;
+}
+
+.landing-meat {
+width: 85px;
+height: 30px;
 }

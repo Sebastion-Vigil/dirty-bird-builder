@@ -26,17 +26,18 @@ class SelectCheese extends React.Component {
         }
     } // change elsewhere 2 handle chz arr instead of chz strs
 
-    showState = () => {
-      console.log("<SelectCheese/> state: ", this.state)
-    }
-
     chooseCheese = (c, s, i) => { // img, strs, index
+      // user can only select up to 3 chzs
+      if (this.state.chz.strs.length === 3) return 
       const chzStrs = this.state.chz.strs
       const chzImgs = this.state.chz.imgs
       const newMsg = s + ' selected'
       const chzTileVisibility = this.state.chzTileVisibility
       chzStrs.push(s)
       chzImgs.push(c)
+      if (chzStrs.length === 3) { // if user selects max of 3 chzs
+        this.advanceToNextScreen()
+      }
       chzTileVisibility[i] = 'hidden'
       this.setState({
         chz: {
@@ -47,20 +48,19 @@ class SelectCheese extends React.Component {
         msg: newMsg
       })
     }
-
+    
     advanceToNextScreen = () => {
+        if (this.state.chz.strs.length > 0) { // if chz selected, send to <Game/>
+          this.props.cheeseUpdate(this.state.chz.imgs, this.state.chz.strs)
+        } // otherwise, just advance to next screen
         setTimeout(() => {
           this.props.screenUpdate()
         }, 250);
       }
-    // componentDidUpdate() === lots of infinite loopty loops
-    componentDidUpdate() { // need to use another method
-    
-    }
 
     render() {
         return (
-            <div className='select select-cheese' onClick={this.showState}>
+            <div className='select select-cheese'>
                 <div className='msg'>{this.state.msg}</div>
                 <div 
                   className='done-button'

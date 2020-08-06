@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../css/TileLanding.css'
+import '../css/Tile.css'
 
 class TileLanding extends React.Component {
     render() {
@@ -20,7 +20,23 @@ class TileLanding extends React.Component {
             <div 
               className='landing-chz'
               style={{
-                backgroundImage: 'url(' + this.props.landingChz + ')',
+                backgroundImage: 'url(' + this.props.landingChz3 + ')',
+                backgroundSize: '100% 100%'
+              }}
+            >
+            </div>
+            <div 
+              className='landing-chz'
+              style={{
+                backgroundImage: 'url(' + this.props.landingChz2 + ')',
+                backgroundSize: '100% 100%'
+              }}
+            >
+            </div>
+            <div 
+              className='landing-chz'
+              style={{
+                backgroundImage: 'url(' + this.props.landingChz1 + ')',
                 backgroundSize: '100% 100%'
               }}
             >

@@ -5,15 +5,14 @@ import BunTop from './BunTop.js'
 import Tile from './Tile.js'
 import TileLanding from './TileLanding.js'
 
-// just a test to see if landingPadStyles arr would work
-
 import '../css/GameScreen.css'
 
 class GameScreen extends React.Component {
   state = this.props.gameData
   // componentWillMount() -> yeah this has got to go!
-  componentWillMount () {
-    // should this be componentDidMount() ?
+  componentWillMount () { 
+    // <GameScreen/> crashed when using componentDidMount()
+    // ^^^ landingPadYs.map() gave undefined error ^^^
     const landingColors = this.state.landingPadColors // <TileLanding/> colors pre <Tile/> drop
     const landingBackgrounds = this.state.landingPadBackgrounds // later -> store in <Game/> state
     let trueTiles = this.state.trueTiles
@@ -23,8 +22,8 @@ class GameScreen extends React.Component {
       // y params for landings
       yParams.push(ySeed)
       landingColors.push('whitesmoke')
-      // <TileLanding/> [droppedImg, landingChz, landingMeat, boolean(TileLanding already full?)]
-      landingBackgrounds.push(['none', 'none', 'none', false])
+      // <TileLanding/> [droppedImg, [landingChz (up to 3)], landingMeat, boolean(TileLanding already full?)]
+      landingBackgrounds.push(['none', ['none', 'none', 'none'], 'none', false])
       ySeed -= 38
       trueTiles -= 1
     }
@@ -161,20 +160,22 @@ class GameScreen extends React.Component {
               id={i.toString()}
               color={this.state.landingPadColors[i]}
               droppedImg={this.state.landingPadBackgrounds[i][parseInt(0)]}
-              landingChz={this.state.landingPadBackgrounds[i][parseInt(1)]}
+              landingChz1={this.state.landingPadBackgrounds[i][parseInt(1)][0]}
+              landingChz2={this.state.landingPadBackgrounds[i][parseInt(1)][1]}
+              landingChz3={this.state.landingPadBackgrounds[i][parseInt(1)][2]}
               landingMeat={this.state.landingPadBackgrounds[i][parseInt(2)]}
             />
           )
         })}
         <Tile
-          // beef w/chz 2 elmnts w/imgs,
-          // refactor <TileLanding/> 2 b same
           onStart={this.onStart}
           onStop={this.onStop}
           onDrag={this.handleDrag}
           x={210}
           y={285}
-          chzImg={this.state.cheese}
+          chzImg1={this.state.cheese[0]}
+          chzImg2={this.state.cheese[1]}
+          chzImg3={this.state.cheese[2]}
           meatImg={this.state.meat}
           id={`meat`} // manually for now -> like all else, refactor later
           visibility={this.state.meatDown[2]}

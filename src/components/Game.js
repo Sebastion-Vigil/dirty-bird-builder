@@ -26,7 +26,7 @@ class Game extends React.Component {
     topBunSauce: '', // imgAddress
     bottomBunSauce: '', // imgAddress
     meat: '', // imgAddress
-    cheese: '', // imgAddress
+    cheese: ['none', 'none', 'none'], // imgAddress -> turn into [arr]
     gameFinished: false,
     // 'meatcheese' str -> insert in userAnswer when meat tile dropped
     userMeatCheese: ''
@@ -94,12 +94,18 @@ class Game extends React.Component {
       userMeatCheese: str
     })
   }
-
+  // ([chzImg...], [chzStr...])
   selectCheese = (chz, s) => {
     let userMeatCheese = this.state.userMeatCheese
-    userMeatCheese += s
+    s.forEach((chzStr) => {
+      userMeatCheese += chzStr
+    })
+    const chzArr = this.state.cheese
+    chz.forEach((c, i) => {
+      chzArr[i] = c
+    })
     this.setState({
-      cheese: chz,
+      cheese: chzArr,
       userMeatCheese: userMeatCheese
     })
   }

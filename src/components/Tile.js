@@ -28,7 +28,21 @@ class Tile extends React.Component {
           <div 
             className='chz'
             style={{
-              backgroundImage: 'url(' + this.props.chzImg + ')',
+              backgroundImage: 'url(' + this.props.chzImg3 + ')',
+              backgroundSize: '100% 100%'
+            }}
+          ></div>
+          <div 
+            className='chz'
+            style={{
+              backgroundImage: 'url(' + this.props.chzImg2 + ')',
+              backgroundSize: '100% 100%'
+            }}
+          ></div>
+          <div 
+            className='chz'
+            style={{
+              backgroundImage: 'url(' + this.props.chzImg1 + ')',
               backgroundSize: '100% 100%'
             }}
           ></div>
