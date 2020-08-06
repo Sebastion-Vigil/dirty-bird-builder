@@ -119,7 +119,7 @@ class GameScreen extends React.Component {
       userAnswer[1][isMeatDown[1]] = userMeatCheese
       tilesDropped += 1
     }
-    // are all TileLandings full?
+    // are all TileLandings full? (boolean)
     const gameFinished = tilesDropped === this.state.trueTiles
     this.setState({
       landingPadBackgrounds: landingBackgrounds,
@@ -160,9 +160,9 @@ class GameScreen extends React.Component {
               id={i.toString()}
               color={this.state.landingPadColors[i]}
               droppedImg={this.state.landingPadBackgrounds[i][parseInt(0)]}
-              landingChz1={this.state.cheese[0]}
-              landingChz2={this.state.cheese[1]}
-              landingChz3={this.state.cheese[2]}
+              landingChz1={this.state.landingPadBackgrounds[i][1][0]}
+              landingChz2={this.state.landingPadBackgrounds[i][1][1]}
+              landingChz3={this.state.landingPadBackgrounds[i][1][2]}
               landingChzHT1={this.state.chzHTs[0]}
               landingChzHT2={this.state.chzHTs[1]}
               landingChzHT3={this.state.chzHTs[2]}
