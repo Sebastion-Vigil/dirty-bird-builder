@@ -4,7 +4,7 @@ import Logo from './Logo.js'
 import GameScreen from './GameScreen.js'
 import AnswerScreen from './AnswerScreen.js'
 
-import '../css/GameArea.css'
+// import '../css/GameArea.css'
 
 class GameArea extends React.Component {
     render() {

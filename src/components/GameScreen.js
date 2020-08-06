@@ -5,7 +5,7 @@ import BunTop from './BunTop.js'
 import Tile from './Tile.js'
 import TileLanding from './TileLanding.js'
 
-import '../css/GameScreen.css'
+// import '../css/GameScreen.css'
 
 class GameScreen extends React.Component {
   state = this.props.gameData

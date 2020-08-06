@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../css/GameMenu.css'
+// import '../css/GameMenu.css'
 // wow this actually worked! fucking cool!
 import menu from './menu-items.js'
 
