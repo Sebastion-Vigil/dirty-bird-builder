@@ -4,6 +4,7 @@ import '../css/Select.css'
 
 // import cheese images for button backgrounds
 import american from '../assets/cheeses/American.png'
+import bluechz from '../assets/cheeses/BlueChz.png'
 import cheddar from '../assets/cheeses/Cheddar.png'
 import pepperjack from '../assets/cheeses/Pepperjack.png'
 import provolone from '../assets/cheeses/Provolone.png'
@@ -18,13 +19,14 @@ class SelectCheese extends React.Component {
           'visible',
           'visible',
           'visible',
+          'visible',
           'visible'
         ],
         chz: {
           strs: [], // check if chz.strs.length === 3
           imgs: [], // chz imgs -> adjust elsewhere
         },
-    } // change elsewhere 2 handle chz arr instead of chz strs
+    }
 
     chooseCheese = (c, s, i) => { // img, strs, visibility index
       // user can only select up to 3 chzs
@@ -35,9 +37,6 @@ class SelectCheese extends React.Component {
       const chzTileVisibility = this.state.chzTileVisibility
       chzStrs.push(s)
       chzImgs.push(c)
-      if (chzStrs.length === 3) { // if user selects max of 3 chzs
-        this.advanceToNextScreen()
-      }
       chzTileVisibility[i] = 'hidden'
       this.setState({
         chz: {
@@ -118,6 +117,15 @@ class SelectCheese extends React.Component {
                       backgroundImage: 'url(' + swiss + ')',
                       backgroundSize: '100% 100%',
                       visibility: this.state.chzTileVisibility[4]
+                  }}
+                ></div>
+                <div 
+                  className='select-button'
+                  onClick={() => this.chooseCheese(bluechz, 'bluechz', 5)}
+                  style={{
+                      backgroundImage: 'url(' + bluechz + ')',
+                      backgroundSize: '100% 100%',
+                      visibility: this.state.chzTileVisibility[5]
                   }}
                 ></div>
             </div>

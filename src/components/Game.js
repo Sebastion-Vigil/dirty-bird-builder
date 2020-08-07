@@ -142,7 +142,7 @@ class Game extends React.Component {
       />
     ]
     const screen = screens[this.state.currentScreen]
-    return <div className='game' onClick={this.showState}>{screen}</div>
+    return <div className='game'>{screen}</div>
   }
 }
 
