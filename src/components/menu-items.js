@@ -32,7 +32,7 @@ export default {
       }, 
       madlove: {
         question: 'What comes on a Madlove burger?',
-        answer: 'briochetrickedrelishbeefswissprovolonecheesecrispcandiedbaconavocadocitrussaladromaine',
+        answer: 'briochetrickedrelishtrickedrelishbeefswissprovolonecheesecrispcandiedbaconavocadocitrussaladromaine',
         correctTiles: 6,
         nextScreen: 1, // get rid of this soon 
         tiles: [
