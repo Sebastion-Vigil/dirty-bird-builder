@@ -29,14 +29,11 @@ class GameScreen extends React.Component {
     }
     // TopBun now starts just above highest TileLanding
     const topBunY = yParams[yParams.length - 1] - 55
-    this.setState({
-      tileDown: [false, -1],
-      meatDown: [false, -1, 'visible'],
-      tilesDropped: 0,
+    this.setState({ 
       landingPadYs: yParams,
       topBunYpos: topBunY,
       landingPadColors: landingColors,
-      landingPadBackgrounds: landingBackgrounds
+      landingPadBackgrounds: landingBackgrounds   
     })
   }
 
@@ -126,8 +123,8 @@ class GameScreen extends React.Component {
       tiles: tiles,
       meatDown: isMeatDown,
       tileDown: isTileDown,
-      userAnswer: userAnswer,
       tilesDropped: tilesDropped,
+      userAnswer: userAnswer,
       gameFinished: gameFinished
     })
   }
@@ -172,6 +169,7 @@ class GameScreen extends React.Component {
           )
         })}
         <Tile
+          id={`meat`} // manually for now -> like all else, refactor later
           onStart={this.onStart}
           onStop={this.onStop}
           onDrag={this.handleDrag}
@@ -185,7 +183,6 @@ class GameScreen extends React.Component {
           tileChzHT3={this.state.chzHTs[2]}
           meatImg={this.state.meat}
           tileMeatHT={this.state.tileMeatHT}
-          id={`meat`} // manually for now -> like all else, refactor later
           visibility={this.state.meatDown[2]}
         />
         {this.state.tiles.map((t, i) => {

@@ -13,22 +13,25 @@ import '../css/Game.css'
 class Game extends React.Component {
   state = { // currentScreen should stay here
     currentScreen: 0, // iterate through game sequence
-    tiles: [], // background img addresses
-    tileMeatHT: 30,
-    tileLandingMeatHT: 35,
-    chzHTs: [0, 0, 0], // for both <Tile/> & <TileLanding/>
+    tiles: [], // <Tile/> background imgs
+    tileYs: [], // y addresses for <Tile/>s
     trueTiles: 0, // determine how many landing pads
-    tileYs: [], // y params of <Tiles /> passed down as props
-    landingPadYs: [], // y addresses of landing pads
-    landingPadColors: [],
-    landingPadBackgrounds: [],
+    tileMeatHT: 30, // ht of meat div in <Tile/>
+    tileLandingMeatHT: 35, // ht of meat div in <TileLanding/>
+    chzHTs: [0, 0, 0], // chz div ht for <Tile/> & <TileLanding/>
+    landingPadYs: [], // y addresses for <TileLanding/>s 
+    landingPadColors: [], // <TileLanding/> background colors
+    landingPadBackgrounds: [], // <TileLanding/> background imgs
+    tileDown: [false, -1], // [boolean, i of landing w/tile]
+    meatDown: [false, -1, 'visible'], // [boolean, i of landing w/meat tile]
+    tilesDropped: 0,
     question: '', // probably gonna just pass this to <Logo/>
     answer: [],
     topBun: '', // imgAddress
     bottomBun: '', // imgAddress
     topBunSauce: '', // imgAddress
     bottomBunSauce: '', // imgAddress
-    meat: '', // imgAddress
+    meat: '', // background img for meat <Tile/>
     cheese: ['none', 'none', 'none'], // imgAddress -> turn into [arr]
     gameFinished: false,
     // 'meatcheese' str -> insert in userAnswer when meat tile dropped
@@ -51,10 +54,10 @@ class Game extends React.Component {
       currentScreen: itemData.nextScreen,
       tiles: itemData.tiles,
       trueTiles: itemData.correctTiles,
-      question: itemData.question,
-      answer: itemData.answer,
       landingPadYs: itemData.landingYs,
       tileYs: itemData.tileYs,
+      question: itemData.question,
+      answer: itemData.answer,
       userAnswer: [
         [new Array(itemData.answer[0].length)],
         [new Array(itemData.answer[1].length)]
@@ -139,7 +142,7 @@ class Game extends React.Component {
       />
     ]
     const screen = screens[this.state.currentScreen]
-    return <div className='game'>{screen}</div>
+    return <div className='game' onClick={this.showState}>{screen}</div>
   }
 }
 
