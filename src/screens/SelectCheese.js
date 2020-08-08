@@ -3,12 +3,12 @@ import React from 'react'
 import '../css/Select.css'
 
 // import cheese images for button backgrounds
-import american from '../assets/cheeses/American.png'
-import bluechz from '../assets/cheeses/BlueChz.png'
-import cheddar from '../assets/cheeses/Cheddar.png'
-import pepperjack from '../assets/cheeses/Pepperjack.png'
-import provolone from '../assets/cheeses/Provolone.png'
-import swiss from '../assets/cheeses/Swiss.png'
+import american from '../assets/imgs/cheeses/American.png'
+import bluechz from '../assets/imgs/cheeses/BlueChz.png'
+import cheddar from '../assets/imgs/cheeses/Cheddar.png'
+import pepperjack from '../assets/imgs/cheeses/Pepperjack.png'
+import provolone from '../assets/imgs/cheeses/Provolone.png'
+import swiss from '../assets/imgs/cheeses/Swiss.png'
 
 class SelectCheese extends React.Component {
 

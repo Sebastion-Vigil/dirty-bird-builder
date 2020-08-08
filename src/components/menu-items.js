@@ -1,14 +1,14 @@
 // MenuItems -> items -> import imgs in each -> static js data -> MongoDB later
 
-import pickle from '../assets/sandwich-toppings/Pickles.png'
-import onion from '../assets/sandwich-toppings/Onions.png'
-import tomato from '../assets/sandwich-toppings/Tomatos.png'
-import iceburg from '../assets/sandwich-toppings/Iceburg.png'
-import avocado from '../assets/sandwich-toppings/Avocado.png'
-import candiedbacon from '../assets/sandwich-toppings/CandiedBacon.png'
-import cheesecrisp from '../assets/sandwich-toppings/CheeseCrisp.png'
-import romaine from '../assets/sandwich-toppings/Romaine.png'
-import citrussalad from '../assets/sandwich-toppings/CitrusSalad.png'
+import pickle from '../assets/imgs/sandwich-toppings/Pickles.png'
+import onion from '../assets/imgs/sandwich-toppings/Onions.png'
+import tomato from '../assets/imgs/sandwich-toppings/Tomatos.png'
+import iceburg from '../assets/imgs/sandwich-toppings/Iceburg.png'
+import avocado from '../assets/imgs/sandwich-toppings/Avocado.png'
+import candiedbacon from '../assets/imgs/sandwich-toppings/CandiedBacon.png'
+import cheesecrisp from '../assets/imgs/sandwich-toppings/CheeseCrisp.png'
+import romaine from '../assets/imgs/sandwich-toppings/Romaine.png'
+import citrussalad from '../assets/imgs/sandwich-toppings/CitrusSalad.png'
 
 export default {
     // further modularize -> universal state -> specific state

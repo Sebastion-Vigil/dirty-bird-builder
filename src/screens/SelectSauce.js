@@ -7,12 +7,11 @@ import BunBottom from '../components/BunBottom.js'
 import '../css/Select.css'
 
 // import sauce images for button backgrounds
-import chipMayo from '../assets/sauces/ChipotleMayo.png'
-// import garlicAioli from '../assets/sauces/GarlicAioli.png'
-import mayo from '../assets/sauces/Mayo.png'
-import relish from '../assets/sauces/Relish.png'
-import trickedRelish from '../assets/sauces/TrickedRelish.png'
-import None from '../assets/sauces/None.png'
+import chipMayo from '../assets/imgs/sauces/ChipotleMayo.png'
+import mayo from '../assets/imgs/sauces/Mayo.png'
+import relish from '../assets/imgs/sauces/Relish.png'
+import trickedRelish from '../assets/imgs/sauces/TrickedRelish.png'
+import None from '../assets/imgs/sauces/None.png'
 
 class SelectSauce extends React.Component {
 

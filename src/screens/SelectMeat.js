@@ -3,11 +3,11 @@ import React from 'react'
 import '../css/Select.css'
 
 // import meat images for button backgrounds
-import beef from '../assets/meats/Beef.png'
-import crispyChx from '../assets/meats/CrispyChx.png'
-import grilledChx from '../assets/meats/GrilledChx.png'
-import impossible from '../assets/meats/Impossible.png'
-import veggie from '../assets/meats/Veggie.png'
+import beef from '../assets/imgs/meats/Beef.png'
+import crispyChx from '../assets/imgs/meats/CrispyChx.png'
+import grilledChx from '../assets/imgs/meats/GrilledChx.png'
+import impossible from '../assets/imgs/meats/Impossible.png'
+import veggie from '../assets/imgs/meats/Veggie.png'
 
 class SelectMeat extends React.Component {
     
