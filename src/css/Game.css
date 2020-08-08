@@ -8,7 +8,7 @@
     background-color: black;
 }
 
-.game-area {  
+.game-screen {  
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -16,6 +16,14 @@
     width: 310px;
     height: 480px;
     background-color: rgb(19, 18, 18);
+    border: 1px solid red;
+}
+
+.game-area {
+    position: relative;
+    width: 300px;
+    height: 325px;
+    color: white;
     border: 1px solid red;
 }
 
@@ -52,12 +60,4 @@
     border: 1px solid gold;
     background-color: lightgray;
     color: red;
-}
-/* */
-.game-screen {
-    position: relative;
-    width: 300px;
-    height: 325px;
-    color: white;
-    border: 1px solid red;
 }
