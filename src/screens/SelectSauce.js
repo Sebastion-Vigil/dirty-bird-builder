@@ -1,8 +1,8 @@
 import React from 'react'
 
 // import top and bottom bun components
-import BunTop from './BunTop.js'
-import BunBottom from './BunBottom.js'
+import BunTop from '../components/BunTop.js'
+import BunBottom from '../components/BunBottom.js'
 
 import '../css/Select.css'
 

@@ -1,11 +1,9 @@
 import React from 'react'
 
-import Logo from './Logo.js'
-import GameArea from './GameArea.js'
-import Answer from './Answer.js'
+import Logo from '../components/Logo.js'
+import GameArea from '../components/GameArea.js'
+import Answer from '../components/Answer.js'
 
-// import '../css/GameArea.css'
-// turn into GameScreen
 class GameScreen extends React.Component {
     render() {
         return (
@@ -19,5 +17,5 @@ class GameScreen extends React.Component {
         )
     }
 }
-// between Logo & Answer: turn GameScreen into GameArea
+
 export default GameScreen

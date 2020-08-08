@@ -1,12 +1,12 @@
 import React from 'react'
 
-// in sequential order
-import GameMenu from './GameMenu.js'
-import SelectBun from './SelectBun.js'
-import SelectSauce from './SelectSauce.js'
-import SelectMeat from './SelectMeat.js'
-import SelectCheese from './SelectCheese.js'
-import GameScreen from './GameScreen.js'
+// screens, in sequential order
+import GameMenu from '../screens/GameMenu.js'
+import SelectBun from '../screens/SelectBun.js'
+import SelectSauce from '../screens/SelectSauce.js'
+import SelectMeat from '../screens/SelectMeat.js'
+import SelectCheese from '../screens/SelectCheese.js'
+import GameScreen from '../screens/GameScreen.js'
 
 import '../css/Game.css'
 // time to refactor -> where are the userAnswer strings being passed
