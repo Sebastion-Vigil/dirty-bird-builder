@@ -10,7 +10,7 @@ import GameArea from './GameArea.js'
 
 import '../css/Game.css'
 // time to refactor -> where are the userAnswer strings being passed
-class Game extends React.Component {
+class Game extends React.Component { // turn into GameArea
   state = { // currentScreen should stay here
     currentScreen: 0, // iterate through game sequence
     tiles: [], // <Tile/> background imgs

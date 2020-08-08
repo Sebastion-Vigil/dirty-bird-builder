@@ -5,7 +5,7 @@ import GameScreen from './GameScreen.js'
 import Answer from './Answer.js'
 
 // import '../css/GameArea.css'
-
+// turn into GameScreen
 class GameArea extends React.Component {
     render() {
         return (
@@ -19,5 +19,5 @@ class GameArea extends React.Component {
         )
     }
 }
-
+// between Logo & Answer: turn GameScreen into GameArea
 export default GameArea
