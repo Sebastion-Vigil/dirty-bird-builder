@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Logo from './Logo.js'
-import GameScreen from './GameScreen.js'
+import GameArea from './GameArea.js'
 import Answer from './Answer.js'
 
 // import '../css/GameArea.css'
@@ -9,7 +9,7 @@ import Answer from './Answer.js'
 class GameScreen extends React.Component {
     render() {
         return (
-            <div className='game-area'>
+            <div className='game-screen'>
                 <Logo />
                 <GameArea
                   gameData={this.props.gameData} 

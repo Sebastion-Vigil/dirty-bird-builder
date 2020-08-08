@@ -6,7 +6,7 @@ import SelectBun from './SelectBun.js'
 import SelectSauce from './SelectSauce.js'
 import SelectMeat from './SelectMeat.js'
 import SelectCheese from './SelectCheese.js'
-import GameArea from './GameArea.js'
+import GameScreen from './GameScreen.js'
 
 import '../css/Game.css'
 // time to refactor -> where are the userAnswer strings being passed
@@ -137,7 +137,7 @@ class Game extends React.Component { // turn into GameArea
         cheeseUpdate={this.selectCheese}
         screenUpdate={this.updateCurrentScreen} 
       />,
-      <GameArea
+      <GameScreen
         gameData={this.state} 
       />
     ]
