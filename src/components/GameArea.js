@@ -2,7 +2,7 @@ import React from 'react'
 
 import Logo from './Logo.js'
 import GameScreen from './GameScreen.js'
-import AnswerScreen from './AnswerScreen.js'
+import Answer from './Answer.js'
 
 // import '../css/GameArea.css'
 
@@ -14,7 +14,7 @@ class GameArea extends React.Component {
                 <GameScreen
                   gameData={this.props.gameData} 
                 />
-                <AnswerScreen />
+                <Answer />
             </div>
         )
     }
